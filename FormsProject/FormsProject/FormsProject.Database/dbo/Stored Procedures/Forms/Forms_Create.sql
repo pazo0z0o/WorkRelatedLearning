@@ -1,0 +1,13 @@
+﻿CREATE PROCEDURE [dbo].[Forms_Create]
+	@title NVARCHAR(64)
+AS
+	DECLARE @ID INT;
+	INSERT INTO dbo.TBL_FORMS (
+		[Title]
+	) VALUES (
+		@title
+	)
+
+	SELECT DISTINCT @ID = SCOPE_IDENTITY() FROM dbo.TBL_FORMS
+	
+	SELECT @ID AS Id;
