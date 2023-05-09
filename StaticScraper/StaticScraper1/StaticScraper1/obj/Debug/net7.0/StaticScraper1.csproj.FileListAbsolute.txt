@@ -1,0 +1,17 @@
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\bin\Debug\net7.0\StaticScraper1.exe
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\bin\Debug\net7.0\StaticScraper1.deps.json
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\bin\Debug\net7.0\StaticScraper1.runtimeconfig.json
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\bin\Debug\net7.0\StaticScraper1.dll
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\bin\Debug\net7.0\StaticScraper1.pdb
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\bin\Debug\net7.0\HtmlAgilityPack.dll
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.csproj.AssemblyReference.cache
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.AssemblyInfoInputs.cache
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.AssemblyInfo.cs
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.csproj.CoreCompileInputs.cache
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.csproj.CopyComplete
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.dll
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\refint\StaticScraper1.dll
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.pdb
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\StaticScraper1.genruntimeconfig.cache
+C:\Users\nikolaos.skliris\Desktop\WorkRelatedLearning\StaticScraper\StaticScraper1\StaticScraper1\obj\Debug\net7.0\ref\StaticScraper1.dll
