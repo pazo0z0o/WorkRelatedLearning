@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "FXbr1X2ELyg+swWemRhxhCEo7M708vxf0Z+ZnaZZkF5MFN1J9SmzVH/oZRa4onImma+7kpvxfu3o+n5CkjrBlg==",
+  "dgSpecHash": "hYUVNxLAM+O6xM+2WYWR5Q7UW4wAP9Pj0CYPgoddD2xCpS/K5YELaBytInC3QYq1PjsTtl2fo+7NFlTAd2R6AQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nikolaos.skliris\\Desktop\\WorkRelatedLearning\\StaticScraper\\StaticScraper2\\StaticScraper2\\StaticScraper2.csproj",
+  "projectFilePath": "C:\\Users\\gamis\\Desktop\\WorkRelatedLearning\\StaticScraper2\\StaticScraper2\\StaticScraper2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nikolaos.skliris\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
-    "C:\\Users\\nikolaos.skliris\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
+    "C:\\Users\\gamis\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
+    "C:\\Users\\gamis\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
   ],
   "logs": []
 }
