@@ -26,6 +26,9 @@ namespace ShipBunkerScrapper
                 foreach (var data in recordsTable) { Console.WriteLine($"Date: {data.DayofMonth}, Price: {data.Price}, High: {data.High}, Low: {data.Low}"); }
                 // populating CSV file
                 csv.WriteRecords(recordsTable);
+                Console.WriteLine("\nPress anything to return to initial menu");
+                Console.ReadKey();
+               
             }
         }
         public void VlsfoCsvOutputs()
@@ -42,6 +45,10 @@ namespace ShipBunkerScrapper
                 foreach (var data in recordsTable) { Console.WriteLine($"Date: {data.DayofMonth}, Price: {data.Price}, High: {data.High}, Low: {data.Low}"); }
                 // populating CSV file
                 csv.WriteRecords(recordsTable);
+                Console.WriteLine("\nPress anything to return to initial menu");
+                Console.ReadKey();
+                
+
             }
         }
 

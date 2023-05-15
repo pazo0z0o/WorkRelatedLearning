@@ -47,8 +47,11 @@ namespace ShipBunkerScrapper
         public void MGOMenu()
         {
             char? choice;
-            StorageHandler CsvOut = new StorageHandler();
-            CsvOut.MgoCsvOutputs();
+            //StorageHandler CsvOut = new StorageHandler();
+            //CsvOut.MgoCsvOutputs();
+            ScrapingLogic mgoScraping = new ScrapingLogic();
+           //TODO : possibly needs to have menus modified--MGO
+            //mgoScraping.MgoScrapingTimer(); 
             Console.WriteLine("\nPress anything to return to initial menu");
             choice = Console.ReadKey().KeyChar;
             if (choice != null)
@@ -61,8 +64,11 @@ namespace ShipBunkerScrapper
         public void VLSFOMenu()
         {
             char? choice;
-            StorageHandler CsvOut = new StorageHandler();
-            CsvOut.VlsfoCsvOutputs();
+            //StorageHandler CsvOut = new StorageHandler();
+            //CsvOut.VlsfoCsvOutputs();
+            //TODO : possibly needs to have menus modified--VLSFO
+            ScrapingLogic vlsfoScraping = new ScrapingLogic();
+            //vlsfoScraping.VlsfoScrapingTimer();
             Console.WriteLine("\nPress anything to return to initial menu");
             choice = Console.ReadKey().KeyChar;
             if (choice != null)
@@ -76,9 +82,9 @@ namespace ShipBunkerScrapper
         public void BothMenu()
         {
             char? choice;
-            StorageHandler CsvOut = new StorageHandler();
-            CsvOut.VlsfoCsvOutputs();
-            CsvOut.MgoCsvOutputs();
+            
+            ScrapingLogic multiScraping = new ScrapingLogic();
+            multiScraping.MgoVlsfoScrapingTimer();          
             Console.WriteLine("\nPress anything to return to initial menu");
             choice = Console.ReadKey().KeyChar;
             if (choice != null)

@@ -87,8 +87,19 @@ namespace ShipBunkerScrapper
             return ScrapingData;
         }
 
-        public void MgoDelegate(Object? list) 
+        //This one handles both TimerCallBacks and executes their respective outputs
+        public void MasterDelegate(Object? list)
         {
+            TimerCallback mgoCallback = new TimerCallback(MgoDelegate);
+            TimerCallback vlsfoCallback = new TimerCallback(VlsfoDelegate);
+            
+            StorageHandler multiCsv = new StorageHandler();
+            multiCsv.VlsfoCsvOutputs();
+            multiCsv.MgoCsvOutputs();
+        }
+        public void MgoDelegate(Object? list)
+        {
+
             StorageHandler mgoCSV = new StorageHandler();
             mgoCSV.VlsfoCsvOutputs();
 
@@ -112,33 +123,56 @@ namespace ShipBunkerScrapper
         }
 
 
-        public void VlsfoScrapingTimer()
+        public void MgoVlsfoScrapingTimer()
         {
             var now = DateTime.UtcNow;
             int intervalTime = 1800000;
 
             TimerCallback mgoCallback = new TimerCallback(MgoDelegate);
-            Timer timerMGO = new Timer(mgoCallback, null, 0, intervalTime);
 
             TimerCallback vlsfoCallback = new TimerCallback(VlsfoDelegate);
-            Timer timerVLSFO = new Timer(vlsfoCallback, null, 0, intervalTime);
 
             var next930am = new DateTime(now.Year, now.Month, now.Day, 9, 30, 0, DateTimeKind.Utc);
             var next2130pm = new DateTime(now.Year, now.Month, now.Day, 21, 30, 0, DateTimeKind.Utc);
-
             //inelegant -- might return later
             ScrapingLogic timingLogic = new ScrapingLogic();
             if (timingLogic.DayOfWeekCheck() && now >= next930am && now <= next2130pm)
-            {
-                
+            {     
+          
+                Timer masterTimer = new Timer(MasterDelegate, null, 0, intervalTime);
 
-
-            }           
-           
-
-
-            
-           
+            }            
         }
+        //public void MgoScrapingTimer()
+        //{
+        //    var now = DateTime.UtcNow;
+        //    int intervalTime = 1800000;
+
+        //    TimerCallback mgoCallback = new TimerCallback(MgoDelegate);
+        //    var next930am = new DateTime(now.Year, now.Month, now.Day, 9, 30, 0, DateTimeKind.Utc);
+        //    var next2130pm = new DateTime(now.Year, now.Month, now.Day, 21, 30, 0, DateTimeKind.Utc);
+        //    //inelegant -- might return later
+        //    ScrapingLogic timingLogic = new ScrapingLogic();
+        //    if (timingLogic.DayOfWeekCheck() && now >= next930am && now <= next2130pm)
+        //    {
+        //        Timer timerMGO = new Timer(mgoCallback, null, 0, intervalTime);
+        //    }
+        //}
+
+        //public void VlsfoScrapingTimer()
+        //{
+        //    var now = DateTime.UtcNow;
+        //    int intervalTime = 1800000;
+
+        //    TimerCallback vlsfoCallback = new TimerCallback(MasterDelegate);
+        //    var next930am = new DateTime(now.Year, now.Month, now.Day, 9, 30, 0, DateTimeKind.Utc);
+        //    var next2130pm = new DateTime(now.Year, now.Month, now.Day, 21, 30, 0, DateTimeKind.Utc);
+        //    //inelegant -- might return later
+        //    ScrapingLogic timingLogic = new ScrapingLogic();
+        //    if (timingLogic.DayOfWeekCheck() && now >= next930am && now <= next2130pm)
+        //    {
+        //        Timer timerVLSFO = new Timer(vlsfoCallback, null, 0, intervalTime);
+        //    }
+        //}
     }
 }
