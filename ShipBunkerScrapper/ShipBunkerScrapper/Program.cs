@@ -11,29 +11,11 @@ namespace ShipBunkerScraper
         static void Main(string[] args)
         {
             //menu Prompts
-            Console.WriteLine("Welcome to the Super Amazing Scraper 1.0\n");
-            Console.WriteLine("Choose MGO,VLSFO or both from the menu below!\n");
-
+            Console.WriteLine("Welcome to the Super Amazing Scraper 12.0\n");
             Menus menu = new Menus();
-
             menu.InitialMenu();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        while(true) { }
+        
         }
 
     }
