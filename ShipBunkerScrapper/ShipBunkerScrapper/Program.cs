@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using HtmlAgilityPack;
+using ShipBunkerScrapper;
 using System.Net.Http;
 
 namespace ShipBunkerScraper
@@ -13,8 +14,9 @@ namespace ShipBunkerScraper
             Console.WriteLine("Welcome to the Super Amazing Scraper 1.0\n");
             Console.WriteLine("Choose MGO,VLSFO or both from the menu below!\n");
 
-            //
+            Menus menu = new Menus();
 
+            menu.InitialMenu();
 
 
 
