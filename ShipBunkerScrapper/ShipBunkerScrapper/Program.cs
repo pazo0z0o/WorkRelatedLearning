@@ -13,7 +13,7 @@ namespace ShipBunkerScraper
             //menu Prompts
             Console.WriteLine("Welcome to the Super Amazing Scraper 15.0\n");
    
-            ScrapingLogic multiScraping = new ScrapingLogic();   
+            ScrapingLogic multiScraping = new ScrapingLogic();
             multiScraping.MgoVlsfoScrapingTimer();
 
             Console.WriteLine("Press any key to exit...");
