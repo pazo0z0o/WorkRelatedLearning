@@ -124,9 +124,7 @@ namespace ShipBunkerScrapper
 
         public string IsoFormatConverter(string DayOfMonth) 
         {
-
-            //M May 15 --> this is the format
-            
+        
             string[] splitDayOfMonth = DayOfMonth.Split(' ');
             DayOfMonth = splitDayOfMonth[1] + " " + splitDayOfMonth[2];
             DateTime isoDate = Convert.ToDateTime(DayOfMonth);

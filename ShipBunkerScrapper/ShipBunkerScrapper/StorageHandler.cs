@@ -13,7 +13,7 @@ namespace ShipBunkerScrapper
     {
         public StorageHandler() { }
 
-        //DEFINETELY needs optimisation to use only one Csv output class but it works temporarily
+
         public void MgoCsvOutputs()
         {
             string MgoCsvFile = "Mgo.Csv";
@@ -22,14 +22,11 @@ namespace ShipBunkerScrapper
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 ScrapingLogic records = new ScrapingLogic();
-                //TODO : fix this one last2
                 List<ScrapingLogic>? recordsTable = records.MgoScrapingLogic();
                 foreach (var date in recordsTable)
                 { 
                     date.DayofMonth = records.IsoFormatConverter(date.DayofMonth);
                 }
-
-
                 Console.WriteLine("\nMGO bunker data\n");
                 foreach (var data in recordsTable) { Console.WriteLine($"Date: {data.DayofMonth}, Price: {data.Price}, High: {data.High}, Low: {data.Low}"); }
                 
@@ -44,7 +41,6 @@ namespace ShipBunkerScrapper
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 ScrapingLogic records = new ScrapingLogic();
-                //TODO : fix this one last
                 List<ScrapingLogic>? recordsTable = records.VlsfoScrapingLogic();
                 foreach(var date in recordsTable) 
                 {

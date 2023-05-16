@@ -16,7 +16,6 @@ namespace ShipBunkerScrapper
         public HtmlDocument DocumentLoader(string url) {
             
             string success = string.Empty;
-
             var web = new HtmlWeb();
             var document = web.Load(url);
             return document; 
