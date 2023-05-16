@@ -1,5 +1,5 @@
 ﻿using HtmlAgilityPack;
-using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -9,8 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Globalization;
-using System.Threading;
 using CsvHelper;
+using CsvHelper.TypeConversion;
 
 namespace ShipBunkerScrapper
 {
@@ -38,6 +38,7 @@ namespace ShipBunkerScrapper
 
         String MgoURL = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#MGO";
         String VlsfoURL = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#VLSFO";
+        private System.Threading.Timer masterTimer;
 
         public List<ScrapingLogic> MgoScrapingLogic()
         {
@@ -83,6 +84,8 @@ namespace ShipBunkerScrapper
                     Low = HtmlEntity.DeEntitize(node.SelectSingleNode("td[4]").InnerText)
 
                 });
+                
+
             }
             return ScrapingData;
         }
@@ -107,16 +110,29 @@ namespace ShipBunkerScrapper
         public void MgoVlsfoScrapingTimer()
         {
             var now = DateTime.UtcNow;
-            int intervalTime = 120000;
+            int intervalTime = 60000;
             TimerCallback masterCallback = new TimerCallback(MasterDelegate);
-
+           
             var next930am = new DateTime(now.Year, now.Month, now.Day, 9, 30, 0, DateTimeKind.Utc);
             var next2130pm = new DateTime(now.Year, now.Month, now.Day, 21, 30, 0, DateTimeKind.Utc);
             ScrapingLogic timingLogic = new ScrapingLogic();
             if (timingLogic.DayOfWeekCheck() && now >= next930am && now <= next2130pm)
             {
-                Timer masterTimer = new Timer(masterCallback, null, 0, intervalTime);
+                masterTimer = new Timer(masterCallback, null, 0, intervalTime);
             }
+        }
+
+        public string IsoFormatConverter(string DayOfMonth) 
+        {
+
+            //M May 15 --> this is the format
+            
+            string[] splitDayOfMonth = DayOfMonth.Split(' ');
+            DayOfMonth = splitDayOfMonth[1] + " " + splitDayOfMonth[2];
+            DateTime isoDate = Convert.ToDateTime(DayOfMonth);
+            string isoToString = isoDate.ToString("o")+"Z"; 
+
+            return isoToString;
         }
 
     }

@@ -11,10 +11,14 @@ namespace ShipBunkerScraper
         static void Main(string[] args)
         {
             //menu Prompts
-            Console.WriteLine("Welcome to the Super Amazing Scraper 12.0\n");
-            Menus menu = new Menus();
+            Console.WriteLine("Welcome to the Super Amazing Scraper 15.0\n");
+            ScrapingLogic multiScraping = new ScrapingLogic();
+            Console.WriteLine("Let the scraping begin");
+            multiScraping.MgoVlsfoScrapingTimer();
+
             
-        while(true) {menu.InitialMenu(); }
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         
         }
 

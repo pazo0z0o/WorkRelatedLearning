@@ -24,12 +24,16 @@ namespace ShipBunkerScrapper
                 ScrapingLogic records = new ScrapingLogic();
                 //TODO : fix this one last2
                 List<ScrapingLogic>? recordsTable = records.MgoScrapingLogic();
+                foreach (var date in recordsTable)
+                { 
+                    date.DayofMonth = records.IsoFormatConverter(date.DayofMonth);
+                }
+
+
                 Console.WriteLine("\nMGO bunker data\n");
                 foreach (var data in recordsTable) { Console.WriteLine($"Date: {data.DayofMonth}, Price: {data.Price}, High: {data.High}, Low: {data.Low}"); }
                 
                 csv.WriteRecords(recordsTable);
-                
-
             }
         }
         public void VlsfoCsvOutputs()
@@ -42,12 +46,14 @@ namespace ShipBunkerScrapper
                 ScrapingLogic records = new ScrapingLogic();
                 //TODO : fix this one last
                 List<ScrapingLogic>? recordsTable = records.VlsfoScrapingLogic();
+                foreach(var date in recordsTable) 
+                {
+                    date.DayofMonth = records.IsoFormatConverter(date.DayofMonth);
+                }
                 Console.WriteLine("\nVLSFO bunker data\n");
                 foreach (var data in recordsTable) { Console.WriteLine($"Date: {data.DayofMonth}, Price: {data.Price}, High: {data.High}, Low: {data.Low}"); }
                
-                csv.WriteRecords(recordsTable);
-                
-                
+                csv.WriteRecords(recordsTable);  
             }
         }
 
