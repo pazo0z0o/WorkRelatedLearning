@@ -13,8 +13,8 @@ namespace ShipBunkerScraper
             //menu Prompts
             Console.WriteLine("Welcome to the Super Amazing Scraper 12.0\n");
             Menus menu = new Menus();
-            menu.InitialMenu();
-        while(true) { }
+            
+        while(true) {menu.InitialMenu(); }
         
         }
 

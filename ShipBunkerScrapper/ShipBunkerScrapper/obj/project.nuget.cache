@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Lz+Mvrf9uGPqv+mStTyBfAB7z+bTocASRxZj1WLpoBwJloGXRI/WUNs/V6qPSFducbwTR6mRVEJ4VuCy+GtisQ==",
+  "dgSpecHash": "2097GnMmAznRVtbFdB2iSF3LHdMzFd5mVOEFHFoFQVSR5sF+kZ17+wNvWaMl1MUKU5mf/AXFL8HWVqGok0dkRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nikolaos.skliris\\Desktop\\WorkRelatedLearning\\StaticScraper\\ShipBunkerScrapper\\ShipBunkerScrapper\\ShipBunkerScrapper.csproj",
+  "projectFilePath": "C:\\Users\\k.stamos\\Desktop\\WorkRelatedLearning\\ShipBunkerScrapper\\ShipBunkerScrapper\\ShipBunkerScrapper.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nikolaos.skliris\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
-    "C:\\Users\\nikolaos.skliris\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
+    "C:\\Users\\k.stamos\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
+    "C:\\Users\\k.stamos\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
   ],
   "logs": []
 }

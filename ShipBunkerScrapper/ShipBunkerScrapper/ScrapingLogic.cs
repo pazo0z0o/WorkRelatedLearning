@@ -107,7 +107,7 @@ namespace ShipBunkerScrapper
         public void MgoVlsfoScrapingTimer()
         {
             var now = DateTime.UtcNow;
-            int intervalTime = 1800000;
+            int intervalTime = 120000;
             TimerCallback masterCallback = new TimerCallback(MasterDelegate);
 
             var next930am = new DateTime(now.Year, now.Month, now.Day, 9, 30, 0, DateTimeKind.Utc);

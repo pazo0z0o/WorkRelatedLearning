@@ -111,23 +111,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nikolaos.skliris\\.nuget\\packages\\": {},
+    "C:\\Users\\k.stamos\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nikolaos.skliris\\Desktop\\WorkRelatedLearning\\StaticScraper\\ShipBunkerScrapper\\ShipBunkerScrapper\\ShipBunkerScrapper.csproj",
+      "projectUniqueName": "C:\\Users\\k.stamos\\Desktop\\WorkRelatedLearning\\ShipBunkerScrapper\\ShipBunkerScrapper\\ShipBunkerScrapper.csproj",
       "projectName": "ShipBunkerScrapper",
-      "projectPath": "C:\\Users\\nikolaos.skliris\\Desktop\\WorkRelatedLearning\\StaticScraper\\ShipBunkerScrapper\\ShipBunkerScrapper\\ShipBunkerScrapper.csproj",
-      "packagesPath": "C:\\Users\\nikolaos.skliris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nikolaos.skliris\\Desktop\\WorkRelatedLearning\\StaticScraper\\ShipBunkerScrapper\\ShipBunkerScrapper\\obj\\",
+      "projectPath": "C:\\Users\\k.stamos\\Desktop\\WorkRelatedLearning\\ShipBunkerScrapper\\ShipBunkerScrapper\\ShipBunkerScrapper.csproj",
+      "packagesPath": "C:\\Users\\k.stamos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\k.stamos\\Desktop\\WorkRelatedLearning\\ShipBunkerScrapper\\ShipBunkerScrapper\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\nikolaos.skliris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\k.stamos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
