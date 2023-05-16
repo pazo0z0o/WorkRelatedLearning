@@ -16,15 +16,15 @@ namespace ShipBunkerScrapper
 {
     public class ScrapingLogic
     {
+        //ctor
         public ScrapingLogic() { }
+        //properties of The Lists used in scraping functions
         public string? DayofMonth { get; set; }
         public string? Price { get; set; }
         public string? High { get; set; }
         public string? Low { get; set; }
 
-
-
-        //for the sat-sun check, so that the scraping isn't executed
+        //enum for checking and excluding execution of the timer 
         enum DayOfWeekEnum
         {
             Sunday = 0,
@@ -35,7 +35,8 @@ namespace ShipBunkerScrapper
             Friday = 5,
             Saturday = 6
         }
-
+        
+        //fields -- URLs of scraping functions and masterTimer
         String MgoURL = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#MGO";
         String VlsfoURL = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#VLSFO";
         private System.Threading.Timer masterTimer;
@@ -46,9 +47,8 @@ namespace ShipBunkerScrapper
             DocumentLoaders document = new DocumentLoaders();
             var doc = document.DocumentLoader(MgoURL);
             var web = new HtmlWeb();
-
+           
             var nodes = doc.DocumentNode.SelectNodes("//*[@id='_MGO']/h3/table/tbody/tr[position()<=11]");
-
             foreach (var node in nodes)
             {
                 ScrapingData.Add(new ScrapingLogic()
@@ -57,7 +57,6 @@ namespace ShipBunkerScrapper
                     Price = HtmlEntity.DeEntitize(node.SelectSingleNode("td[1]").InnerText),
                     High = HtmlEntity.DeEntitize(node.SelectSingleNode("td[3]").InnerText),
                     Low = HtmlEntity.DeEntitize(node.SelectSingleNode("td[4]").InnerText)
-
                 });
             }
             return ScrapingData;
@@ -68,12 +67,10 @@ namespace ShipBunkerScrapper
         {
             List<ScrapingLogic>? ScrapingData = new List<ScrapingLogic>();
             DocumentLoaders document = new DocumentLoaders();
-
             var doc = document.DocumentLoader(VlsfoURL);
             var web = new HtmlWeb();
 
             var nodes = doc.DocumentNode.SelectNodes("//*[@id='_VLSFO']/h3/table/tbody/tr[position()<=11]");
-
             foreach (var node in nodes)
             {
                 ScrapingData.Add(new ScrapingLogic()
@@ -82,15 +79,12 @@ namespace ShipBunkerScrapper
                     Price = HtmlEntity.DeEntitize(node.SelectSingleNode("td[1]").InnerText),
                     High = HtmlEntity.DeEntitize(node.SelectSingleNode("td[3]").InnerText),
                     Low = HtmlEntity.DeEntitize(node.SelectSingleNode("td[4]").InnerText)
-
                 });
-                
-
             }
             return ScrapingData;
         }
 
-        //This one handles both TimerCallBacks and executes their respective outputs
+       
         public void MasterDelegate(Object? list)
         {
             StorageHandler multiCsv = new StorageHandler();
@@ -112,7 +106,6 @@ namespace ShipBunkerScrapper
             var now = DateTime.UtcNow;
             int intervalTime = 60000;
             TimerCallback masterCallback = new TimerCallback(MasterDelegate);
-           
             var next930am = new DateTime(now.Year, now.Month, now.Day, 9, 30, 0, DateTimeKind.Utc);
             var next2130pm = new DateTime(now.Year, now.Month, now.Day, 21, 30, 0, DateTimeKind.Utc);
             ScrapingLogic timingLogic = new ScrapingLogic();
