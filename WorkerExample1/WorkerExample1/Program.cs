@@ -33,7 +33,6 @@ internal class Program
     .ConfigureServices(services =>
     {
         services.AddHostedService<Worker>();
-        
     })
     .UseSerilog()
     .Build();
