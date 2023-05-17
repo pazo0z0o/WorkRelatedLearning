@@ -1,0 +1,35 @@
+1) AppDomain Class:
+The AppDomain class represents an application domain in .NET. An application domain provides an isolated and controlled environment where applications run. 
+It acts as a container that separates and protects different applications or components from each other. Each AppDomain has its own set of loaded assemblies, 
+configuration settings, security policies, and memory space. AppDomains allow for the isolation of applications, improved security, and better resource management.
+
+AppContext Class:
+The AppContext class provides access to a set of contextual information and services related to the current application's execution environment.
+ It allows you to query and modify various application-specific settings and behaviors. 
+ The AppContext class provides properties that can be used to check or set the values of specific application contexts,
+ such as culture, formatting, or compatibility switches.
+
+2) Differences between AppDomain Class and AppContext Class:
+- AppDomain is a fundamental concept in the .NET Framework, while AppContext is a newer addition introduced in .NET Framework 4.6. AppDomains are used to isolate and manage application execution,
+ while AppContext provides access to specific application contexts and settings.
+
+- AppDomains provide complete isolation of resources, such as assemblies, security policies, and memory, 
+while AppContext operates within the same AppDomain and focuses on modifying specific application behaviors and settings.
+
+- AppDomains are typically used in scenarios where you need to run multiple applications or components within the same process but isolated from each other,
+ such as in hosting environments.
+ AppContext, on the other hand, is useful when you want to modify certain aspects of the application's behavior or retrieve specific contextual information.
+
+3) Use cases for both:
+- AppDomain:
+  - Application isolation: Running multiple applications or components within the same process while keeping them separate and independent.
+  - Plugin systems: Loading and unloading plugins or extensions dynamically while maintaining separation between them.
+  - Sandboxing: Running untrusted code or scripts in a controlled environment to enhance security.
+
+- AppContext:
+  - Modifying application behavior: Changing application-specific settings and behaviors based on contextual information, such as culture, formatting, or compatibility switches.
+  - Feature toggles: Enabling or disabling specific features or functionality based on runtime conditions or configuration.
+  - Migrating legacy applications: Using compatibility switches to adapt older applications to newer frameworks or runtime behaviors without modifying their source code.
+
+Both AppDomain and AppContext provide essential features for managing application execution, isolation, and customization,
+but they serve different purposes and cater to different scenarios.
