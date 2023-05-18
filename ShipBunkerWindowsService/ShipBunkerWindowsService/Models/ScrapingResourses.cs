@@ -9,7 +9,7 @@ namespace ShipBunkerWindowsService.Models
     public class ScrapingResourses
     {
         //TODO : Turn them into appsettings since they are standard BUT FOR NOW keep them in 
-        String MgoUrl = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#MGO";
+        String MgoUrl =   "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#MGO";
         String VlsfoUrl = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#VLSFO";
 
         String MgoXpath = "//*[@id='_MGO']/h3/table/tbody/tr[position()<=11]";

@@ -19,7 +19,7 @@ namespace ShipBunkerWindowsService.Repos
 
         //------------------------------------------------------------//
         //Additional small ones 
-        bool DayOfWeekCheck();
+         bool DayOfWeekCheck();
          string? IsoFormatConverter(string DayOfMonth); 
 
 
