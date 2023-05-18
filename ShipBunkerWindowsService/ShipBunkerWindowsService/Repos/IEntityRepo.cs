@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShipBunkerWindowsService.Repos
 {
-    public interface IEntityRepo<TEntity,SEntity>
+    public interface IEntityRepo<TEntity>
     {
         //What functions can be reused indepedently -- Could do it with generics but no great point in it
         

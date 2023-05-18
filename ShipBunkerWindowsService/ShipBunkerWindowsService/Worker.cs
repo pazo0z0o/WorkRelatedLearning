@@ -6,12 +6,12 @@ namespace ShipBunkerWindowsService
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly IEntityRepo<FinancialData,ScrapingResourses> _scraperRepo;
+        private readonly IEntityRepo<FinancialData> _scraperRepo;
         
         
 
         //TODO : instantiate and inject in the worker also
-        public Worker(ILogger<Worker> logger, IEntityRepo<FinancialData,ScrapingResourses> scraper )
+        public Worker(ILogger<Worker> logger, IEntityRepo<FinancialData> scraper )
         {
             _scraperRepo = scraper;
             _logger = logger;

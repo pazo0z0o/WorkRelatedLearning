@@ -8,19 +8,17 @@ namespace ShipBunkerWindowsService.Models
 {
     public class ScrapingResourses
     {
-        //TODO : Turn them into appsettings since they are standard BUT FOR NOW keep them in 
-        String MgoUrl =   "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#MGO";
-        String VlsfoUrl = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#VLSFO";
-
-        String MgoXpath = "//*[@id='_MGO']/h3/table/tbody/tr[position()<=11]";
-        String VlsfoXpath = "//*[@id='_VLSFO']/h3/table/tbody/tr[position()<=11]";
-            
-        string MgoCsvFile = "Mgo.Csv";
-        string VlsfoCsvFile = "Vlso.Csv";
-
-
-
-        //---------------Running Interval ---------//
-        public int IntervalTime = 60 * 1000; 
+        
+       public String? MgoUrl { get; set; }
+       public String? VlsfoUrl { get; set; }
+      
+       public String? MgoXpath { get; set; }
+       public String? VlsfoXpath { get; set; }
+          
+       public string? MgoCsvFile { get; set; }
+       public string? VlsfoCsvFile { get; set; }
+       
+       //---------------Running Interval ---------//
+       public int IntervalTime { get; set; }
     }
 }

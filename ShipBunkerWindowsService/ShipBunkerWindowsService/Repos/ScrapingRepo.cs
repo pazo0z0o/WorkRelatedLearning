@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using CsvHelper.TypeConversion;
 using HtmlAgilityPack;
+using Microsoft.Extensions.Options;
 using ShipBunkerWindowsService.Models;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,14 @@ using System.Threading.Tasks;
 
 namespace ShipBunkerWindowsService.Repos
 {
-    public class ScrapingRepo : IEntityRepo<FinancialData,ScrapingResourses>
+    public class ScrapingRepo : IEntityRepo<FinancialData>
     {
+        private readonly ScrapingResourses _scrapingResourses;
+
+        public ScrapingRepo(IOptions<ScrapingResourses> scrap)
+        {
+            _scrapingResourses = scrap.Value;  //It takes the value of the configuration in the appSettings 
+        }
         public void CsvOutput(List<FinancialData> ScrapingData,string csvOutputName)
         {
             string FilePath = Path.Combine(Directory.GetCurrentDirectory(), csvOutputName);
