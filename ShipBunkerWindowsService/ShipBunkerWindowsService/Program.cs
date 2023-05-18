@@ -1,6 +1,7 @@
 using ShipBunkerWindowsService;
 using Serilog;
 using Microsoft.Extensions.Configuration.Json;
+using ShipBunkerWindowsService.Repos;
 
 internal class Program
 {
@@ -36,8 +37,8 @@ internal class Program
             .ConfigureServices(services =>
     {// TODO : Dependency injections with the Interfaces -- Register the services as Singleton
         services.AddHostedService<Worker>();
-    
-    
+        services.AddSingleton<IEntityRepo<FinancialData>, MgoRepo>();
+        services.AddSingleton<IEntityRepo<FinancialData>, VlsfoRepo>();
     })
     .UseSerilog()
     .Build();
