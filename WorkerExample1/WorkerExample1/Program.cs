@@ -1,6 +1,6 @@
 using WorkerExample1;
 using Serilog;
-
+using Microsoft.Extensions.Configuration.Json;
 internal class Program
 {
     private static async Task Main(string[] args)
@@ -30,9 +30,11 @@ internal class Program
         IHost host = Host.CreateDefaultBuilder(args)
     .UseWindowsService()
     //Dependency Injection part where I can inject my classes to use and Interfaces
-    .ConfigureServices(services =>
+    .ConfigureServices((hostContext,services) =>
     {
+        IConfiguration configuration = hostContext.Configuration;
         services.AddHostedService<Worker>();
+        // services.Configure<AppSettings>(configuration.GetSection("AppSettings")); ==> This would be the section of the Appsettings that I create
     })
     .UseSerilog()
     .Build();

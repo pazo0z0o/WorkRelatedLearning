@@ -4,8 +4,9 @@ namespace WorkerExample1
     {
         private readonly ILogger<Worker> _logger;
         private HttpClient _client;
+
         
-        
+        //Should handle the rest of the injections , logger aside in the ShipBunker proj
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
