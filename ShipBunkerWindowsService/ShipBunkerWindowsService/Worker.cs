@@ -9,7 +9,7 @@ namespace ShipBunkerWindowsService
         private readonly ILogger<Worker> _logger;
         private readonly IEntityRepo<FinancialData> _scraperRepo;
         private readonly IConfiguration _config;
-        
+
 
         //TODO : instantiate and inject in the worker also
         public Worker(ILogger<Worker> logger, IEntityRepo<FinancialData> scraper, IConfiguration configuration)
@@ -21,9 +21,9 @@ namespace ShipBunkerWindowsService
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-         
-            _logger.LogInformation("The service has started at {initialTime}",DateTime.UtcNow);
-            
+
+            _logger.LogInformation("The service has started at {initialTime}", DateTime.UtcNow);
+
             return base.StartAsync(cancellationToken);
         }
 
@@ -50,18 +50,20 @@ namespace ShipBunkerWindowsService
 
                 //TODO : Check how to do this with fully asynchronous calls
                 //MGO scraping logic and Output
+
                 var doc = _scraperRepo.DocumentLoader(mgoUrl);
                 var scrapList = _scraperRepo.ScrapingLogic(doc, mgoXpath);
-                _scraperRepo.CsvOutput(scrapList,mgoCsv);
-                
+                _scraperRepo.CsvOutput(scrapList, mgoCsv);
+
                 //VLSFO scraping logic and Output
+
                 doc = _scraperRepo.DocumentLoader(vlsfoUrl);
                 scrapList = _scraperRepo.ScrapingLogic(doc, vlsfoXpath);
                 _scraperRepo.CsvOutput(scrapList, vlsfoCsv);
 
                 //TODO : try{Loading,Scraping}-catch{ex message}-finally{CsvOutput} 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Delay(intervalTime, stoppingToken); //TODO : find a way to pass in there the appsettings
+                await Task.Delay(intervalTime, stoppingToken);
             }
         }
     }
