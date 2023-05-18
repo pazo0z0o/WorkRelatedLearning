@@ -1,3 +1,4 @@
+using ShipBunkerWindowsService.Models;
 using ShipBunkerWindowsService.Repos;
 
 namespace ShipBunkerWindowsService
@@ -5,15 +6,14 @@ namespace ShipBunkerWindowsService
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly IEntityRepo<FinancialData> _mgoRepo;
-        private readonly IEntityRepo<FinancialData> _vlsfoRepo;
+        private readonly IEntityRepo<FinancialData,ScrapingResourses> _scraperRepo;
+        
         
 
         //TODO : instantiate and inject in the worker also
-        public Worker(ILogger<Worker> logger, IEntityRepo<FinancialData> mgoRepo, IEntityRepo<FinancialData> vlsfoRepo)
+        public Worker(ILogger<Worker> logger, IEntityRepo<FinancialData,ScrapingResourses> scraper )
         {
-            _vlsfoRepo = vlsfoRepo;
-            _mgoRepo = mgoRepo;
+            _scraperRepo = scraper;
             _logger = logger;
         }
 

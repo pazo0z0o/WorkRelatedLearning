@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using CsvHelper.TypeConversion;
 using HtmlAgilityPack;
+using ShipBunkerWindowsService.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,12 +11,11 @@ using System.Threading.Tasks;
 
 namespace ShipBunkerWindowsService.Repos
 {
-    public class VlsfoRepo : IEntityRepo<FinancialData>
+    public class ScrapingRepo : IEntityRepo<FinancialData,ScrapingResourses>
     {
-        public void CsvOutput(List<FinancialData> ScrapingData)
+        public void CsvOutput(List<FinancialData> ScrapingData,string csvOutputName)
         {
-            string VlsfoCsvFile = "Vlsfo.Csv";
-            string FilePath = Path.Combine(Directory.GetCurrentDirectory(), VlsfoCsvFile);
+            string FilePath = Path.Combine(Directory.GetCurrentDirectory(), csvOutputName);
 
             using (var writer = new StreamWriter(FilePath))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
@@ -24,15 +24,10 @@ namespace ShipBunkerWindowsService.Repos
                 foreach (var date in ScrapingData)
                 {
                     date.DayofMonth = IsoFormatConverter(date.DayofMonth);
-                }
-                //Console.WriteLine("\nMGO bunker data\n");
-                //foreach (var data in ScrapingData) { Console.WriteLine($"Date: {data.DayofMonth}, Price: {data.Price}, High: {data.High}, Low: {data.Low}"); }
-
+                }               
                 csv.WriteRecords(ScrapingData);
-
             }
         }
-
         public bool DayOfWeekCheck()
         {
             bool isNotWeekend = false;
@@ -41,12 +36,10 @@ namespace ShipBunkerWindowsService.Repos
             return isNotWeekend;
         }
 
-        public HtmlDocument DocumentLoader()
-        {  //TODO : See if I can feed it the URL in the worker
-            String VlsfoURL = "https://shipandbunker.com/prices/av/global/av-glb-global-average-bunker-price#VLSFO";
-            string success = string.Empty;
+        public HtmlDocument DocumentLoader(string siteURL)
+        {  
             var web = new HtmlWeb();
-            var document = web.Load(VlsfoURL);
+            var document = web.Load(siteURL);
             return document;
         }
 
@@ -60,12 +53,12 @@ namespace ShipBunkerWindowsService.Repos
             return isoToString;
         }
 
-        public List<FinancialData>? ScrapingLogic(HtmlDocument loadedDoc)
+        public List<FinancialData>? ScrapingLogic(HtmlDocument loadedDoc,string xpath)
         {
             List<FinancialData>? ScrapingData = new List<FinancialData>();
-
-            var web = new HtmlWeb();
-            var nodes = loadedDoc.DocumentNode.SelectNodes("//*[@id='_VLSFO']/h3/table/tbody/tr[position()<=11]");
+           
+            //var web = new HtmlWeb(); --> to be removed
+            var nodes = loadedDoc.DocumentNode.SelectNodes(xpath);
             foreach (var node in nodes)
             {
                 ScrapingData.Add(new FinancialData()
