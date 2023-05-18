@@ -34,6 +34,7 @@ internal class Program
     {
         IConfiguration configuration = hostContext.Configuration;
         services.AddHostedService<Worker>();
+        
         // services.Configure<AppSettings>(configuration.GetSection("AppSettings")); ==> This would be the section of the Appsettings that I create
     })
     .UseSerilog()
