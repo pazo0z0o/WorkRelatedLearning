@@ -4,6 +4,8 @@ namespace ShipBunkerWindowsService
     {
         private readonly ILogger<Worker> _logger;
 
+
+        //TODO : instantiate and inject in the worker also
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;

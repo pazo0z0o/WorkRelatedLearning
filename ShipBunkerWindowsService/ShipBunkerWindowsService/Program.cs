@@ -34,7 +34,7 @@ internal class Program
         IHost host = Host.CreateDefaultBuilder(args)
             .UseWindowsService()
             .ConfigureServices(services =>
-    {
+    {// TODO : Dependency injections with the Interfaces -- Register the services as Singleton
         services.AddHostedService<Worker>();
     
     

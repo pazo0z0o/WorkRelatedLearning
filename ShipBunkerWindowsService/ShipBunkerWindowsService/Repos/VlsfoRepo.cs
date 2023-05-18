@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using CsvHelper.TypeConversion;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
