@@ -35,11 +35,11 @@ internal class Program
 
         IHost host = Host.CreateDefaultBuilder(args)
             .UseWindowsService()
-            .ConfigureServices(services =>
-    {// TODO : Dependency injections with the Interfaces -- Register the services as Singleton
+            .ConfigureServices((context,services) =>
+    {
         services.AddHostedService<Worker>();
         services.AddSingleton<IEntityRepo<FinancialData>, ScrapingRepo>();
-        
+        services.Configure<ScrapingResourses>(context.Configuration.GetSection("ScrapingResources"));
     })
     .UseSerilog()
     .Build();
