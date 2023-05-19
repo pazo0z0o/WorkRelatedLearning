@@ -9,20 +9,23 @@ namespace ShipBunkerWindowsService.Repos
 {
     public interface IEntityRepo<TEntity>
     {
-        //What functions can be reused indepedently -- Could do it with generics but no great point in it
-        
+        //Interface used also in the D.I part -- Could do it with generics 
+
         //Functional Logic
-         HtmlDocument DocumentLoader(string siteURL);
-         List<TEntity>? ScrapingLogic(HtmlDocument loadedDoc, string xpath);
-         
-         void CsvOutput(List<TEntity> ScrapingData,string csvOutputName);
+
+        HtmlDocument DocumentLoader(string siteURL);
+
+        List<TEntity>? ScrapingLogic(HtmlDocument loadedDoc, string xpath);
+
+        void CsvOutput(List<TEntity> ScrapingData, string csvOutputName);
 
         //------------------------------------------------------------//
         //Additional small ones 
-         bool DayOfWeekCheck();
-         string? IsoFormatConverter(string DayOfMonth); 
+        bool DayOfWeekCheck();
+        string? IsoFormatConverter(string DayOfMonth);
 
-
+        //TODO : ShipBunkerWindowsService DevelopmentShell command
+        //sc.exe create ShipBunkerWindowsService binPath=C:\Users\k.stamos\Desktop\WorkRelatedLearning\ShipBunkerWindowsService\ShipBunkerWindowsService\ShipBunkerWindowsService.exe
 
     }
 }

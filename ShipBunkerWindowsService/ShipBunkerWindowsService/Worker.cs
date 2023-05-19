@@ -11,7 +11,7 @@ namespace ShipBunkerWindowsService
         private readonly IConfiguration _config;
 
 
-        //TODO : instantiate and inject in the worker also
+        
         public Worker(ILogger<Worker> logger, IEntityRepo<FinancialData> scraper, IConfiguration configuration)
         {
             _scraperRepo = scraper;
@@ -36,34 +36,27 @@ namespace ShipBunkerWindowsService
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            //interval time set from appSettings
             while (!stoppingToken.IsCancellationRequested)
             {
                 //very sus, there must be a better way
-                int intervalTime = _config.GetValue<int>("IntervalTime");
-                string? mgoUrl = _config.GetValue<string>("MgoUrl");
-                string? vlsfoUrl = _config.GetValue<string>("VlsfoUrl");
-                string? mgoXpath = _config.GetValue<string>("MgoXpath");
-                string? vlsfoXpath = _config.GetValue<string>("VlsfoXpath");
-                string? mgoCsv = _config.GetValue<string>("MgoCsvFile");
-                string? vlsfoCsv = _config.GetValue<string>("VlsfoCsvFile");
-
+                var resources = _config.GetSection("ScrapingResources").Get<ScrapingResourses>();
+                
+                //TODO : try{Loading,Scraping}-catch{ex message}-finally{CsvOutput} 
                 //TODO : Check how to do this with fully asynchronous calls
                 //MGO scraping logic and Output
 
-                var doc = _scraperRepo.DocumentLoader(mgoUrl);
-                var scrapList = _scraperRepo.ScrapingLogic(doc, mgoXpath);
-                _scraperRepo.CsvOutput(scrapList, mgoCsv);
+                var doc = _scraperRepo.DocumentLoader(resources.MgoUrl);
+                var scrapList = _scraperRepo.ScrapingLogic(doc, resources.MgoXpath);
+                _scraperRepo.CsvOutput(scrapList, resources.MgoCsvFile);
 
                 //VLSFO scraping logic and Output
 
-                doc = _scraperRepo.DocumentLoader(vlsfoUrl);
-                scrapList = _scraperRepo.ScrapingLogic(doc, vlsfoXpath);
-                _scraperRepo.CsvOutput(scrapList, vlsfoCsv);
+                doc = _scraperRepo.DocumentLoader(resources.VlsfoUrl);
+                scrapList = _scraperRepo.ScrapingLogic(doc, resources.VlsfoXpath);
+                _scraperRepo.CsvOutput(scrapList, resources.VlsfoCsvFile);
 
-                //TODO : try{Loading,Scraping}-catch{ex message}-finally{CsvOutput} 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Delay(intervalTime, stoppingToken);
+                await Task.Delay(resources.IntervalTime, stoppingToken);
             }
         }
     }

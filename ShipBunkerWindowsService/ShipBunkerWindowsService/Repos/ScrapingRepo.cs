@@ -14,7 +14,7 @@ namespace ShipBunkerWindowsService.Repos
 {
     public class ScrapingRepo : IEntityRepo<FinancialData>
     {
-        private readonly ScrapingResourses _scrapingResourses; //TODO: CARE FOR THIS WARNING--This might be a point of failure
+        private readonly ScrapingResourses _scrapingResourses; //TODO: CARE FOR THIS -- Might be unused/uneccessary
 
         public ScrapingRepo(IOptions<ScrapingResourses> scrap)
         {
