@@ -1,6 +1,5 @@
 using ShipBunkerWindowsService;
 using Serilog;
-using Microsoft.Extensions.Configuration.Json;
 using ShipBunkerWindowsService.Repos;
 using ShipBunkerWindowsService.Models;
 

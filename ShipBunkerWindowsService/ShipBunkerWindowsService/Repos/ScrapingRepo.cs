@@ -14,18 +14,20 @@ namespace ShipBunkerWindowsService.Repos
 {
     public class ScrapingRepo : IEntityRepo<FinancialData>
     {
-        private readonly ScrapingResourses _scrapingResourses; //TODO: CARE FOR THIS -- Might be unused/uneccessary
-
-        public ScrapingRepo(IOptions<ScrapingResourses> scrap)
+       // private readonly ScrapingResourses _scrapingResourses; //TODO: CARE FOR THIS -- Might be unused/uneccessary
+        private readonly ILogger<ScrapingRepo> _logger;
+        public ScrapingRepo(ILogger<ScrapingRepo> logger)
         {
-            _scrapingResourses = scrap.Value;  //It takes the value of the configuration in the appSettings 
+           // _scrapingResourses = scrap.Value;  //It takes the value of the configuration in the appSettings 
+            _logger = logger;
+
         }
 
         public List<FinancialData>? ScrapingLogic(HtmlDocument loadedDoc, string xpath)
         {
             List<FinancialData>? ScrapingData = new List<FinancialData>();
 
-            //var web = new HtmlWeb(); --> to be removed
+            
             var nodes = loadedDoc.DocumentNode.SelectNodes(xpath);
             foreach (var node in nodes)
             {
@@ -37,28 +39,43 @@ namespace ShipBunkerWindowsService.Repos
                     Low = HtmlEntity.DeEntitize(node.SelectSingleNode("td[4]").InnerText)
                 });
             }
+            _logger.LogInformation("Scraping performed successfuly");
             return ScrapingData;
         }
 
         public void CsvOutput(List<FinancialData> ScrapingData,string csvOutputName)
         {
-            string FilePath = Path.Combine(Directory.GetCurrentDirectory(), csvOutputName);
-
-            using (var writer = new StreamWriter(FilePath))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            //correctly sets the current Directory to that of the windows service's
+            Directory.SetCurrentDirectory(System.AppDomain.CurrentDomain.BaseDirectory);
+            try
             {
-                //FinancialData records = new FinancialData();
-                foreach (var date in ScrapingData)
+                _logger.LogInformation("CsvOutput initiated successfuly");
+                string FilePath = Path.Combine(Directory.GetCurrentDirectory(), csvOutputName);
+                //_logger.LogInformation("Filepath is:  {0}",FilePath);
+                using (var writer = new StreamWriter(FilePath))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
-                    date.DayofMonth = IsoFormatConverter(date.DayofMonth);
-                }               
-                csv.WriteRecords(ScrapingData);
+                    //FinancialData records = new FinancialData();
+                    foreach (var date in ScrapingData)
+                    {
+                        date.DayofMonth = IsoFormatConverter(date.DayofMonth);
+                    }
+                    csv.WriteRecords(ScrapingData);
+
+                }
             }
+            catch (Exception exception)
+            {
+                _logger.LogError("Something went wrong {ex}",exception.Message);
+                
+            }
+            
         }
         public HtmlDocument DocumentLoader(string siteURL)
         {  
             var web = new HtmlWeb();
             var document = web.Load(siteURL);
+            _logger.LogInformation("Document loaded successfuly");
             return document;
         }
 
