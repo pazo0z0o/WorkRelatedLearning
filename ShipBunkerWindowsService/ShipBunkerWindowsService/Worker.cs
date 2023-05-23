@@ -11,7 +11,7 @@ namespace ShipBunkerWindowsService
         private readonly IConfiguration _config;
 
 
-        
+
         public Worker(ILogger<Worker> logger, IEntityRepo<FinancialData> scraper, IConfiguration configuration)
         {
             _scraperRepo = scraper;
@@ -36,31 +36,33 @@ namespace ShipBunkerWindowsService
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested) //TODO: check if I can check the DayOfWeek here 
+            while (!stoppingToken.IsCancellationRequested) 
             {
                 var resources = _config.GetSection("ScrapingResources").Get<ScrapingResourses>();
-
-                //TODO : try{Loading,Scraping}-catch{ex message}-finally{CsvOutput} 
                 //TODO : Check how to do this with fully asynchronous calls
                 //MGO scraping logic and Output
-                try
-                {
-                    var doc = _scraperRepo.DocumentLoader(resources.MgoUrl);
-                    var scrapList = _scraperRepo.ScrapingLogic(doc, resources.MgoXpath);
-                    _scraperRepo.CsvOutput(scrapList, resources.MgoCsvFile);
 
-                    //VLSFO scraping logic and Output
-
-                    doc = _scraperRepo.DocumentLoader(resources.VlsfoUrl);
-                    scrapList = _scraperRepo.ScrapingLogic(doc, resources.VlsfoXpath);
-                    _scraperRepo.CsvOutput(scrapList, resources.VlsfoCsvFile);
-                }
-                catch (Exception ex)
+                if (_scraperRepo.ValidRunningTime())
                 {
-                    _logger.LogError("Something went wrong at {errortime}  message : {ex}", DateTime.Now,ex.Message); ;
+                    try
+                    {
+                        var doc = _scraperRepo.DocumentLoader(resources.MgoUrl);
+                        var scrapList = _scraperRepo.ScrapingLogic(doc, resources.MgoXpath);
+                        _scraperRepo.CsvOutput(scrapList, resources.MgoCsvFile);
+
+                        //VLSFO scraping logic and Output
+
+                        doc = _scraperRepo.DocumentLoader(resources.VlsfoUrl);
+                        scrapList = _scraperRepo.ScrapingLogic(doc, resources.VlsfoXpath);
+                        _scraperRepo.CsvOutput(scrapList, resources.VlsfoCsvFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError("Something went wrong at {errortime}  message : {ex}", DateTime.Now, ex.Message); ;
+                    }
+                    _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                    await Task.Delay(resources.IntervalTime, stoppingToken);
                 }
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Delay(resources.IntervalTime, stoppingToken);
             }
         }
     }

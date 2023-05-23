@@ -50,6 +50,7 @@ namespace ShipBunkerWindowsService.Repos
             try
             {
                 _logger.LogInformation("CsvOutput initiated successfuly");
+                _logger.LogInformation("================================================");
                 string FilePath = Path.Combine(Directory.GetCurrentDirectory(), csvOutputName);
                 //_logger.LogInformation("Filepath is:  {0}",FilePath);
                 using (var writer = new StreamWriter(FilePath))
@@ -79,12 +80,21 @@ namespace ShipBunkerWindowsService.Repos
             return document;
         }
 
-        public bool DayOfWeekCheck()
-        {
-            bool isNotWeekend = false;
-            DayOfWeekEnum currentDay = (DayOfWeekEnum)DateTime.UtcNow.DayOfWeek;
-            if (currentDay != DayOfWeekEnum.Saturday || currentDay != DayOfWeekEnum.Sunday) { isNotWeekend = true; }
-            return isNotWeekend;
+        public bool ValidRunningTime()
+        {//TODO : check if the performance of the check is the desired one 
+            
+            DateTime currentTime = DateTime.UtcNow;
+           //TODO : Determine its usefulness and delete if neccessary
+            var next930am = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 9, 30, 0, DateTimeKind.Utc);
+            var next2130pm = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 21, 30, 0, DateTimeKind.Utc);
+            var currentDay = currentTime.DayOfWeek;
+            //bool isValid = ((currentDay >= DayOfWeekEnum.Monday && currentDay <= DayOfWeekEnum.Friday) && (currentTime >= next930am && currentTime <= next2130pm));
+
+            bool isValid = (currentDay >= DayOfWeek.Monday && currentDay <= DayOfWeek.Friday) 
+                &&(currentTime.TimeOfDay >= TimeSpan.Parse("09:30:00") 
+                && currentTime.TimeOfDay <= TimeSpan.Parse("21:30:00"));
+
+            return isValid;
         }
 
         public string? IsoFormatConverter(string DayOfMonth)
