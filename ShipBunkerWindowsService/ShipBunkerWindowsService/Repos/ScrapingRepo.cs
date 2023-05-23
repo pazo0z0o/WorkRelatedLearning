@@ -84,7 +84,7 @@ namespace ShipBunkerWindowsService.Repos
         {//TODO : check if the performance of the check is the desired one 
             
             DateTime currentTime = DateTime.UtcNow;
-           //TODO : Determine its usefulness and delete if neccessary
+           //TODO :   Determine its usefulness and delete if neccessary
             var next930am = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 9, 30, 0, DateTimeKind.Utc);
             var next2130pm = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 21, 30, 0, DateTimeKind.Utc);
             var currentDay = currentTime.DayOfWeek;
