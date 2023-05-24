@@ -59,7 +59,7 @@ namespace ShipBunkerWindowsService
                     {
                         _logger.LogError("Something went wrong at {errortime}  message : {ex}", DateTime.Now, ex.Message); ;
                     }
-                    _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                    _logger.LogInformation("Worker running at: {time}", DateTimeOffset.UtcNow);
                     await Task.Delay(resources.IntervalTime, stoppingToken);
                 }
             }
