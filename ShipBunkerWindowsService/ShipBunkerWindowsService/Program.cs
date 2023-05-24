@@ -28,15 +28,12 @@ internal class Program
 
         IHost host = Host.CreateDefaultBuilder(args)
             .UseWindowsService()
-            .ConfigureServices((context,services) =>
-    {//Could context be removed?
+            .ConfigureServices((context,services) => {  
         services.AddHostedService<Worker>();
         services.AddSingleton<IEntityRepo<FinancialData>, ScrapingRepo>();
-        //services.Configure<ScrapingResourses>(context.Configuration.GetSection("ScrapingResources")); --> Needs to be an object to be grabbed in this way,in the appsettings.json!
     })
     .UseSerilog()
     .Build();
-
         await host.RunAsync();
     }
 

@@ -14,15 +14,17 @@ namespace ShipBunkerWindowsService.Repos
 {
     public class ScrapingRepo : IEntityRepo<FinancialData>
     {
-       // private readonly ScrapingResourses _scrapingResourses; //TODO: CARE FOR THIS -- Might be unused/uneccessary
         private readonly ILogger<ScrapingRepo> _logger;
         public ScrapingRepo(ILogger<ScrapingRepo> logger)
         {
-           // _scrapingResourses = scrap.Value;  //It takes the value of the configuration in the appSettings 
             _logger = logger;
-
         }
-
+        /// <summary>
+        /// Checks the current time and runs or doesn't run according to the specified times we want.
+        /// </summary>
+        /// <param name="loadedDoc"> The loaded HtmlDocument that was returned by Document loader</param>
+        /// <param name="xpath">The Xpath of the element we want to scrape from the table</param>
+        /// <returns>A <see cref="List{FinancialData}" /> that will be used for the export into .Csv format for our output</returns>
         public List<FinancialData>? ScrapingLogic(HtmlDocument loadedDoc, string xpath)
         {
             List<FinancialData>? ScrapingData = new List<FinancialData>();
@@ -42,7 +44,11 @@ namespace ShipBunkerWindowsService.Repos
             _logger.LogInformation("Scraping performed successfuly");
             return ScrapingData;
         }
-
+        /// <summary>
+        /// Prints the scraped data into CSV output
+        /// </summary>
+        /// <param name="ScrapingData">List of all the data that was scraped by the ScrapingLogic function</param>
+        /// <param name="csvOutputName">name of the .csv output file</param>
         public void CsvOutput(List<FinancialData> ScrapingData,string csvOutputName)
         {
             //correctly sets the current Directory to that of the windows service's
@@ -52,26 +58,27 @@ namespace ShipBunkerWindowsService.Repos
                 _logger.LogInformation("CsvOutput initiated successfuly");
                 _logger.LogInformation("================================================");
                 string FilePath = Path.Combine(Directory.GetCurrentDirectory(), csvOutputName);
-                //_logger.LogInformation("Filepath is:  {0}",FilePath);
+               
                 using (var writer = new StreamWriter(FilePath))
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
-                    //FinancialData records = new FinancialData();
                     foreach (var date in ScrapingData)
                     {
                         date.DayofMonth = IsoFormatConverter(date.DayofMonth);
                     }
                     csv.WriteRecords(ScrapingData);
-
                 }
             }
             catch (Exception exception)
             {
-                _logger.LogError("Something went wrong {ex}",exception.Message);
-                
-            }
-            
+                _logger.LogError("Something went wrong {ex}",exception.Message);  
+            }            
         }
+        /// <summary>
+        /// Loads the intented website to be scraped 
+        /// </summary>
+        /// <param name="siteURL"></param>
+        /// <returns>A <see cref="HtmlDocument" /> that is going to be used by ScrapingLogic </returns>
         public HtmlDocument DocumentLoader(string siteURL)
         {  
             var web = new HtmlWeb();
@@ -80,7 +87,12 @@ namespace ShipBunkerWindowsService.Repos
             return document;
         }
 
-       // public bool ValidRunningTime()
+        /// <summary>
+        /// Checks the current time and runs or doesn't run according to the specified times we want.
+        /// </summary>
+        /// <param name="startRun">The start point of the running period we want</param>
+        /// <param name="startRun">The end point of the running period we want</param>
+        /// <returns>A <see cref="bool"/> that needs to be TRUE for the app to function</returns>
         public bool ValidRunningTime(string startRun, string endRun)
         {//TODO : modify for appsettings.json input |  Keep prior code for a return to the stable state of the app
 
@@ -101,7 +113,11 @@ namespace ShipBunkerWindowsService.Repos
 
             return isValid;
         }
-
+        /// <summary>
+        /// Converts the Date column in the scraped data, into Iso time format.
+        /// </summary>
+        /// <param name="DayOfMonth">The day of the month from the original scraped data that will be converted into Iso format</param>
+        /// <returns>A <see cref="string"/> that is the conversion of the DateTime.Local to UTC time format </returns>
         public string? IsoFormatConverter(string DayOfMonth)
         {
             string[] splitDayOfMonth = DayOfMonth.Split(' ');

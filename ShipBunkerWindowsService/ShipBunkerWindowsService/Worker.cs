@@ -39,7 +39,7 @@ namespace ShipBunkerWindowsService
             while (!stoppingToken.IsCancellationRequested)
             {
                 var resources = _config.GetSection("ScrapingResources").Get<ScrapingResourses>();
-                //TODO : move the ValidRunningTime check inside the while so that it gets values from "resources"
+                // TODO : move the ValidRunningTime check inside the while so that it gets values from "resources"
                 if (_scraperRepo.ValidRunningTime(resources.StartRunTime, resources.EndRunTime))
                 //MGO scraping logic and Output
                 {
