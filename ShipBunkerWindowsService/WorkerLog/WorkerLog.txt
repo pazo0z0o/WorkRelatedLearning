@@ -1,3 +1,218 @@
-2023-05-23 10:04:41.720 +03:00 [INF] The service has started at "2023-05-23T07:04:41.7085375Z"
-2023-05-23 10:32:50.285 +03:00 [INF] The service has stopped at "2023-05-23T07:32:50.2857744Z"
-2023-05-23 10:33:21.640 +03:00 [INF] The service has started at "2023-05-23T07:33:21.6293981Z"
+2023-05-23 12:48:18.980 +03:00 [INF] The service has started at "2023-05-23T09:48:18.9694937Z"
+2023-05-23 12:48:21.192 +03:00 [INF] Document loaded successfuly
+2023-05-23 12:48:21.222 +03:00 [INF] Scraping performed successfuly
+2023-05-23 12:48:21.234 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 12:48:21.235 +03:00 [INF] ================================================
+2023-05-23 12:48:22.717 +03:00 [INF] Document loaded successfuly
+2023-05-23 12:48:22.724 +03:00 [INF] Scraping performed successfuly
+2023-05-23 12:48:22.725 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 12:48:22.725 +03:00 [INF] ================================================
+2023-05-23 12:48:22.729 +03:00 [INF] Worker running at: "2023-05-23T12:48:22.7298206+03:00"
+2023-05-23 13:18:24.670 +03:00 [INF] Document loaded successfuly
+2023-05-23 13:18:24.675 +03:00 [INF] Scraping performed successfuly
+2023-05-23 13:18:24.675 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 13:18:24.675 +03:00 [INF] ================================================
+2023-05-23 13:18:25.470 +03:00 [INF] Document loaded successfuly
+2023-05-23 13:18:25.474 +03:00 [INF] Scraping performed successfuly
+2023-05-23 13:18:25.474 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 13:18:25.474 +03:00 [INF] ================================================
+2023-05-23 13:18:25.478 +03:00 [INF] Worker running at: "2023-05-23T13:18:25.4782793+03:00"
+2023-05-23 13:48:28.443 +03:00 [INF] Document loaded successfuly
+2023-05-23 13:48:28.448 +03:00 [INF] Scraping performed successfuly
+2023-05-23 13:48:28.448 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 13:48:28.448 +03:00 [INF] ================================================
+2023-05-23 13:48:29.585 +03:00 [INF] Document loaded successfuly
+2023-05-23 13:48:29.588 +03:00 [INF] Scraping performed successfuly
+2023-05-23 13:48:29.588 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 13:48:29.588 +03:00 [INF] ================================================
+2023-05-23 13:48:29.592 +03:00 [INF] Worker running at: "2023-05-23T13:48:29.5923846+03:00"
+2023-05-23 14:18:31.752 +03:00 [INF] Document loaded successfuly
+2023-05-23 14:18:31.756 +03:00 [INF] Scraping performed successfuly
+2023-05-23 14:18:31.757 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 14:18:31.757 +03:00 [INF] ================================================
+2023-05-23 14:18:33.089 +03:00 [INF] Document loaded successfuly
+2023-05-23 14:18:33.093 +03:00 [INF] Scraping performed successfuly
+2023-05-23 14:18:33.093 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 14:18:33.093 +03:00 [INF] ================================================
+2023-05-23 14:18:33.098 +03:00 [INF] Worker running at: "2023-05-23T14:18:33.0987127+03:00"
+2023-05-23 14:48:35.149 +03:00 [INF] Document loaded successfuly
+2023-05-23 14:48:35.153 +03:00 [INF] Scraping performed successfuly
+2023-05-23 14:48:35.153 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 14:48:35.153 +03:00 [INF] ================================================
+2023-05-23 14:48:35.834 +03:00 [INF] Document loaded successfuly
+2023-05-23 14:48:35.837 +03:00 [INF] Scraping performed successfuly
+2023-05-23 14:48:35.837 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 14:48:35.837 +03:00 [INF] ================================================
+2023-05-23 14:48:35.841 +03:00 [INF] Worker running at: "2023-05-23T14:48:35.8410327+03:00"
+2023-05-23 15:18:37.851 +03:00 [INF] Document loaded successfuly
+2023-05-23 15:18:37.855 +03:00 [INF] Scraping performed successfuly
+2023-05-23 15:18:37.855 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 15:18:37.855 +03:00 [INF] ================================================
+2023-05-23 15:18:38.598 +03:00 [INF] Document loaded successfuly
+2023-05-23 15:18:38.602 +03:00 [INF] Scraping performed successfuly
+2023-05-23 15:18:38.602 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 15:18:38.602 +03:00 [INF] ================================================
+2023-05-23 15:18:38.605 +03:00 [INF] Worker running at: "2023-05-23T15:18:38.6056009+03:00"
+2023-05-23 15:48:40.574 +03:00 [INF] Document loaded successfuly
+2023-05-23 15:48:40.579 +03:00 [INF] Scraping performed successfuly
+2023-05-23 15:48:40.579 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 15:48:40.579 +03:00 [INF] ================================================
+2023-05-23 15:48:41.526 +03:00 [INF] Document loaded successfuly
+2023-05-23 15:48:41.530 +03:00 [INF] Scraping performed successfuly
+2023-05-23 15:48:41.530 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 15:48:41.530 +03:00 [INF] ================================================
+2023-05-23 15:48:41.534 +03:00 [INF] Worker running at: "2023-05-23T15:48:41.5342739+03:00"
+2023-05-23 16:18:44.267 +03:00 [INF] Document loaded successfuly
+2023-05-23 16:18:44.271 +03:00 [INF] Scraping performed successfuly
+2023-05-23 16:18:44.271 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 16:18:44.271 +03:00 [INF] ================================================
+2023-05-23 16:18:44.917 +03:00 [INF] Document loaded successfuly
+2023-05-23 16:18:44.921 +03:00 [INF] Scraping performed successfuly
+2023-05-23 16:18:44.921 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 16:18:44.921 +03:00 [INF] ================================================
+2023-05-23 16:18:44.924 +03:00 [INF] Worker running at: "2023-05-23T16:18:44.9249758+03:00"
+2023-05-23 16:48:46.862 +03:00 [INF] Document loaded successfuly
+2023-05-23 16:48:46.866 +03:00 [INF] Scraping performed successfuly
+2023-05-23 16:48:46.866 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 16:48:46.867 +03:00 [INF] ================================================
+2023-05-23 16:48:49.044 +03:00 [INF] Document loaded successfuly
+2023-05-23 16:48:49.048 +03:00 [INF] Scraping performed successfuly
+2023-05-23 16:48:49.048 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 16:48:49.048 +03:00 [INF] ================================================
+2023-05-23 16:48:49.052 +03:00 [INF] Worker running at: "2023-05-23T16:48:49.0519695+03:00"
+2023-05-23 17:18:51.013 +03:00 [INF] Document loaded successfuly
+2023-05-23 17:18:51.018 +03:00 [INF] Scraping performed successfuly
+2023-05-23 17:18:51.018 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 17:18:51.018 +03:00 [INF] ================================================
+2023-05-23 17:18:51.805 +03:00 [INF] Document loaded successfuly
+2023-05-23 17:18:51.808 +03:00 [INF] Scraping performed successfuly
+2023-05-23 17:18:51.809 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 17:18:51.809 +03:00 [INF] ================================================
+2023-05-23 17:18:51.812 +03:00 [INF] Worker running at: "2023-05-23T17:18:51.8123657+03:00"
+2023-05-23 17:48:54.123 +03:00 [INF] Document loaded successfuly
+2023-05-23 17:48:54.128 +03:00 [INF] Scraping performed successfuly
+2023-05-23 17:48:54.129 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 17:48:54.129 +03:00 [INF] ================================================
+2023-05-23 17:48:56.434 +03:00 [INF] Document loaded successfuly
+2023-05-23 17:48:56.438 +03:00 [INF] Scraping performed successfuly
+2023-05-23 17:48:56.438 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 17:48:56.438 +03:00 [INF] ================================================
+2023-05-23 17:48:56.442 +03:00 [INF] Worker running at: "2023-05-23T17:48:56.4420242+03:00"
+2023-05-23 18:18:58.363 +03:00 [INF] Document loaded successfuly
+2023-05-23 18:18:58.368 +03:00 [INF] Scraping performed successfuly
+2023-05-23 18:18:58.368 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 18:18:58.368 +03:00 [INF] ================================================
+2023-05-23 18:18:59.094 +03:00 [INF] Document loaded successfuly
+2023-05-23 18:18:59.098 +03:00 [INF] Scraping performed successfuly
+2023-05-23 18:18:59.098 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 18:18:59.098 +03:00 [INF] ================================================
+2023-05-23 18:18:59.102 +03:00 [INF] Worker running at: "2023-05-23T18:18:59.1019806+03:00"
+2023-05-23 18:49:01.356 +03:00 [INF] Document loaded successfuly
+2023-05-23 18:49:01.359 +03:00 [INF] Scraping performed successfuly
+2023-05-23 18:49:01.359 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 18:49:01.359 +03:00 [INF] ================================================
+2023-05-23 18:49:02.262 +03:00 [INF] Document loaded successfuly
+2023-05-23 18:49:02.266 +03:00 [INF] Scraping performed successfuly
+2023-05-23 18:49:02.266 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 18:49:02.266 +03:00 [INF] ================================================
+2023-05-23 18:49:02.269 +03:00 [INF] Worker running at: "2023-05-23T18:49:02.2694103+03:00"
+2023-05-23 19:19:04.226 +03:00 [INF] Document loaded successfuly
+2023-05-23 19:19:04.230 +03:00 [INF] Scraping performed successfuly
+2023-05-23 19:19:04.230 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 19:19:04.230 +03:00 [INF] ================================================
+2023-05-23 19:19:04.894 +03:00 [INF] Document loaded successfuly
+2023-05-23 19:19:04.897 +03:00 [INF] Scraping performed successfuly
+2023-05-23 19:19:04.898 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 19:19:04.898 +03:00 [INF] ================================================
+2023-05-23 19:19:04.901 +03:00 [INF] Worker running at: "2023-05-23T19:19:04.9013737+03:00"
+2023-05-23 19:49:07.644 +03:00 [INF] Document loaded successfuly
+2023-05-23 19:49:07.647 +03:00 [INF] Scraping performed successfuly
+2023-05-23 19:49:07.647 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 19:49:07.647 +03:00 [INF] ================================================
+2023-05-23 19:49:09.782 +03:00 [INF] Document loaded successfuly
+2023-05-23 19:49:09.794 +03:00 [INF] Scraping performed successfuly
+2023-05-23 19:49:09.794 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 19:49:09.794 +03:00 [INF] ================================================
+2023-05-23 19:49:09.797 +03:00 [INF] Worker running at: "2023-05-23T19:49:09.7973132+03:00"
+2023-05-23 20:19:11.794 +03:00 [INF] Document loaded successfuly
+2023-05-23 20:19:11.798 +03:00 [INF] Scraping performed successfuly
+2023-05-23 20:19:11.798 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 20:19:11.798 +03:00 [INF] ================================================
+2023-05-23 20:19:12.483 +03:00 [INF] Document loaded successfuly
+2023-05-23 20:19:12.487 +03:00 [INF] Scraping performed successfuly
+2023-05-23 20:19:12.487 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 20:19:12.487 +03:00 [INF] ================================================
+2023-05-23 20:19:12.490 +03:00 [INF] Worker running at: "2023-05-23T20:19:12.4906794+03:00"
+2023-05-23 20:49:14.365 +03:00 [INF] Document loaded successfuly
+2023-05-23 20:49:14.369 +03:00 [INF] Scraping performed successfuly
+2023-05-23 20:49:14.369 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 20:49:14.369 +03:00 [INF] ================================================
+2023-05-23 20:49:15.132 +03:00 [INF] Document loaded successfuly
+2023-05-23 20:49:15.135 +03:00 [INF] Scraping performed successfuly
+2023-05-23 20:49:15.135 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 20:49:15.135 +03:00 [INF] ================================================
+2023-05-23 20:49:15.138 +03:00 [INF] Worker running at: "2023-05-23T20:49:15.1387018+03:00"
+2023-05-23 21:19:17.122 +03:00 [INF] Document loaded successfuly
+2023-05-23 21:19:17.127 +03:00 [INF] Scraping performed successfuly
+2023-05-23 21:19:17.127 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 21:19:17.127 +03:00 [INF] ================================================
+2023-05-23 21:19:17.846 +03:00 [INF] Document loaded successfuly
+2023-05-23 21:19:17.850 +03:00 [INF] Scraping performed successfuly
+2023-05-23 21:19:17.850 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 21:19:17.850 +03:00 [INF] ================================================
+2023-05-23 21:19:17.853 +03:00 [INF] Worker running at: "2023-05-23T21:19:17.8535476+03:00"
+2023-05-23 21:49:19.822 +03:00 [INF] Document loaded successfuly
+2023-05-23 21:49:19.825 +03:00 [INF] Scraping performed successfuly
+2023-05-23 21:49:19.825 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 21:49:19.825 +03:00 [INF] ================================================
+2023-05-23 21:49:20.501 +03:00 [INF] Document loaded successfuly
+2023-05-23 21:49:20.504 +03:00 [INF] Scraping performed successfuly
+2023-05-23 21:49:20.505 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 21:49:20.505 +03:00 [INF] ================================================
+2023-05-23 21:49:20.508 +03:00 [INF] Worker running at: "2023-05-23T21:49:20.5082114+03:00"
+2023-05-23 22:19:22.593 +03:00 [INF] Document loaded successfuly
+2023-05-23 22:19:22.597 +03:00 [INF] Scraping performed successfuly
+2023-05-23 22:19:22.597 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 22:19:22.597 +03:00 [INF] ================================================
+2023-05-23 22:19:23.990 +03:00 [INF] Document loaded successfuly
+2023-05-23 22:19:23.994 +03:00 [INF] Scraping performed successfuly
+2023-05-23 22:19:23.994 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 22:19:23.994 +03:00 [INF] ================================================
+2023-05-23 22:19:23.999 +03:00 [INF] Worker running at: "2023-05-23T22:19:23.9999174+03:00"
+2023-05-23 22:49:25.911 +03:00 [INF] Document loaded successfuly
+2023-05-23 22:49:25.917 +03:00 [INF] Scraping performed successfuly
+2023-05-23 22:49:25.917 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 22:49:25.917 +03:00 [INF] ================================================
+2023-05-23 22:49:26.660 +03:00 [INF] Document loaded successfuly
+2023-05-23 22:49:26.664 +03:00 [INF] Scraping performed successfuly
+2023-05-23 22:49:26.664 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 22:49:26.664 +03:00 [INF] ================================================
+2023-05-23 22:49:26.667 +03:00 [INF] Worker running at: "2023-05-23T22:49:26.6673578+03:00"
+2023-05-23 23:19:28.640 +03:00 [INF] Document loaded successfuly
+2023-05-23 23:19:28.644 +03:00 [INF] Scraping performed successfuly
+2023-05-23 23:19:28.644 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 23:19:28.644 +03:00 [INF] ================================================
+2023-05-23 23:19:29.572 +03:00 [INF] Document loaded successfuly
+2023-05-23 23:19:29.576 +03:00 [INF] Scraping performed successfuly
+2023-05-23 23:19:29.576 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 23:19:29.576 +03:00 [INF] ================================================
+2023-05-23 23:19:29.579 +03:00 [INF] Worker running at: "2023-05-23T23:19:29.5796234+03:00"
+2023-05-23 23:49:31.565 +03:00 [INF] Document loaded successfuly
+2023-05-23 23:49:31.596 +03:00 [INF] Scraping performed successfuly
+2023-05-23 23:49:31.596 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 23:49:31.596 +03:00 [INF] ================================================
+2023-05-23 23:49:32.235 +03:00 [INF] Document loaded successfuly
+2023-05-23 23:49:32.239 +03:00 [INF] Scraping performed successfuly
+2023-05-23 23:49:32.239 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-23 23:49:32.239 +03:00 [INF] ================================================
+2023-05-23 23:49:32.242 +03:00 [INF] Worker running at: "2023-05-23T23:49:32.2427794+03:00"
+2023-05-24 00:19:34.142 +03:00 [INF] Document loaded successfuly
+2023-05-24 00:19:34.147 +03:00 [INF] Scraping performed successfuly
+2023-05-24 00:19:34.147 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-24 00:19:34.147 +03:00 [INF] ================================================
+2023-05-24 00:19:34.775 +03:00 [INF] Document loaded successfuly
+2023-05-24 00:19:34.778 +03:00 [INF] Scraping performed successfuly
+2023-05-24 00:19:34.778 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-24 00:19:34.778 +03:00 [INF] ================================================
+2023-05-24 00:19:34.781 +03:00 [INF] Worker running at: "2023-05-24T00:19:34.7818590+03:00"
+2023-05-24 10:25:46.908 +03:00 [INF] The service has stopped at "2023-05-24T07:25:46.9064781Z"

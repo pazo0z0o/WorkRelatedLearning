@@ -1,0 +1,10 @@
+2023-05-24 12:34:06.151 +03:00 [INF] The service has started at "2023-05-24T09:34:06.1349861Z"
+2023-05-24 12:34:19.905 +03:00 [INF] Document loaded successfuly
+2023-05-24 12:34:19.969 +03:00 [INF] Scraping performed successfuly
+2023-05-24 12:34:20.183 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-24 12:34:20.184 +03:00 [INF] ================================================
+2023-05-24 12:34:21.454 +03:00 [INF] Document loaded successfuly
+2023-05-24 12:34:21.461 +03:00 [INF] Scraping performed successfuly
+2023-05-24 12:34:21.461 +03:00 [INF] CsvOutput initiated successfuly
+2023-05-24 12:34:21.461 +03:00 [INF] ================================================
+2023-05-24 12:34:21.475 +03:00 [INF] Worker running at: "2023-05-24T12:34:21.4754380+03:00"

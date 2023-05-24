@@ -21,7 +21,9 @@ namespace ShipBunkerWindowsService.Repos
 
         //------------------------------------------------------------//
         //Additional small ones 
-        bool ValidRunningTime();
+
+        //bool ValidRunningTime();
+        bool ValidRunningTime(string startRun, string endRun);
         string? IsoFormatConverter(string DayOfMonth);
 
         //TODO : ShipBunkerWindowsService DevelopmentShell command

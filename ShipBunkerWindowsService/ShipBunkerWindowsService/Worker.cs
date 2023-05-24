@@ -34,15 +34,14 @@ namespace ShipBunkerWindowsService
             return base.StopAsync(cancellationToken);
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken /* && _scraperRepo.ValidRunningTime()*/)
         {
-            while (!stoppingToken.IsCancellationRequested) 
+            while (!stoppingToken.IsCancellationRequested)
             {
                 var resources = _config.GetSection("ScrapingResources").Get<ScrapingResourses>();
-                //TODO : Check how to do this with fully asynchronous calls
+                //TODO : move the ValidRunningTime check inside the while so that it gets values from "resources"
+                if (_scraperRepo.ValidRunningTime(resources.StartRunTime, resources.EndRunTime))
                 //MGO scraping logic and Output
-
-                if (_scraperRepo.ValidRunningTime())
                 {
                     try
                     {

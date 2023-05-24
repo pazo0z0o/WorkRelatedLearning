@@ -46,7 +46,7 @@ namespace ShipBunkerWindowsService.Repos
         public void CsvOutput(List<FinancialData> ScrapingData,string csvOutputName)
         {
             //correctly sets the current Directory to that of the windows service's
-            Directory.SetCurrentDirectory(System.AppDomain.CurrentDomain.BaseDirectory);
+          Directory.SetCurrentDirectory(System.AppDomain.CurrentDomain.BaseDirectory);
             try
             {
                 _logger.LogInformation("CsvOutput initiated successfuly");
@@ -80,19 +80,24 @@ namespace ShipBunkerWindowsService.Repos
             return document;
         }
 
-        public bool ValidRunningTime()
-        {//TODO : check if the performance of the check is the desired one 
-            
+       // public bool ValidRunningTime()
+        public bool ValidRunningTime(string startRun, string endRun)
+        {//TODO : modify for appsettings.json input |  Keep prior code for a return to the stable state of the app
+
             DateTime currentTime = DateTime.UtcNow;
-           //TODO :   Determine its usefulness and delete if neccessary
-            var next930am = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 9, 30, 0, DateTimeKind.Utc);
-            var next2130pm = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 21, 30, 0, DateTimeKind.Utc);
+            string[] splitStartTime = startRun.Split(':');
+            string[] splitEndTime = endRun.Split(':');
+           // var startRunTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 9, 30, 0, DateTimeKind.Utc);
+           // var endRunTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, 21, 30, 0, DateTimeKind.Utc);
+
+            var startRunTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, Int32.Parse(splitStartTime[0]), Int32.Parse(splitStartTime[1]), Int32.Parse(splitStartTime[2]), DateTimeKind.Utc);
+            var endRunTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, Int32.Parse(splitEndTime[0]), Int32.Parse(splitEndTime[1]), Int32.Parse(splitEndTime[2]), DateTimeKind.Utc);
+
             var currentDay = currentTime.DayOfWeek;
-            //bool isValid = ((currentDay >= DayOfWeekEnum.Monday && currentDay <= DayOfWeekEnum.Friday) && (currentTime >= next930am && currentTime <= next2130pm));
 
             bool isValid = (currentDay >= DayOfWeek.Monday && currentDay <= DayOfWeek.Friday) 
-                &&(currentTime.TimeOfDay >= TimeSpan.Parse("09:30:00") 
-                && currentTime.TimeOfDay <= TimeSpan.Parse("21:30:00"));
+                &&(currentTime >= startRunTime
+                && currentTime <= endRunTime);
 
             return isValid;
         }

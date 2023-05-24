@@ -20,5 +20,8 @@ namespace ShipBunkerWindowsService.Models
        
        //---------------Running Interval ---------//
        public int IntervalTime { get; set; }
+        public string StartRunTime { get; set; }
+        public string EndRunTime { get; set; }
+
     }
 }
