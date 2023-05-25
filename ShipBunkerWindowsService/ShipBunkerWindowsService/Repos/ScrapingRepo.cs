@@ -19,9 +19,8 @@ namespace ShipBunkerWindowsService.Repos
         {
             _logger = logger;
         }
-        /// <summary>
-        /// Checks the current time and runs or doesn't run according to the specified times we want.
-        /// </summary>
+       
+        /// <summary>Checks the current time and runs or doesn't run according to the specified times we want.</summary>
         /// <param name="loadedDoc"> The loaded HtmlDocument that was returned by Document loader</param>
         /// <param name="xpath">The Xpath of the element we want to scrape from the table</param>
         /// <returns>A <see cref="List{FinancialData}" /> that will be used for the export into .Csv format for our output</returns>
@@ -44,9 +43,8 @@ namespace ShipBunkerWindowsService.Repos
             _logger.LogInformation("Scraping performed successfuly");
             return ScrapingData;
         }
-        /// <summary>
-        /// Prints the scraped data into CSV output
-        /// </summary>
+       
+        /// <summary>Prints the scraped data into CSV output</summary>
         /// <param name="ScrapingData">List of all the data that was scraped by the ScrapingLogic function</param>
         /// <param name="csvOutputName">name of the .csv output file</param>
         public void CsvOutput(List<FinancialData> ScrapingData,string csvOutputName)
@@ -74,9 +72,8 @@ namespace ShipBunkerWindowsService.Repos
                 _logger.LogError("Something went wrong {ex}",exception.Message);  
             }            
         }
-        /// <summary>
-        /// Loads the intented website to be scraped 
-        /// </summary>
+       
+        /// <summary>Loads the intented website to be scraped </summary>
         /// <param name="siteURL"></param>
         /// <returns>A <see cref="HtmlDocument" /> that is going to be used by ScrapingLogic </returns>
         public HtmlDocument DocumentLoader(string siteURL)
@@ -87,9 +84,7 @@ namespace ShipBunkerWindowsService.Repos
             return document;
         }
 
-        /// <summary>
-        /// Checks the current time and runs or doesn't run according to the specified times we want.
-        /// </summary>
+        /// <summary>Checks the current time and runs or doesn't run according to the specified times we want.</summary>
         /// <param name="startRun">The start point of the running period we want</param>
         /// <param name="startRun">The end point of the running period we want</param>
         /// <returns>A <see cref="bool"/> that needs to be TRUE for the app to function</returns>
@@ -113,9 +108,8 @@ namespace ShipBunkerWindowsService.Repos
 
             return isValid;
         }
-        /// <summary>
-        /// Converts the Date column in the scraped data, into Iso time format.
-        /// </summary>
+       
+        /// <summary>Converts the Date column in the scraped data, into Iso time format.</summary>
         /// <param name="DayOfMonth">The day of the month from the original scraped data that will be converted into Iso format</param>
         /// <returns>A <see cref="string"/> that is the conversion of the DateTime.Local to UTC time format </returns>
         public string? IsoFormatConverter(string DayOfMonth)
