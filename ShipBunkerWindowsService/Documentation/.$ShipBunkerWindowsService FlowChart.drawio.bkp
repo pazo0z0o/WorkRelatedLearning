@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2023-05-22T11:42:27.488Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="38hFGCdn2WMf1_xFlZw3" version="21.3.2" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1434" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="S3ySTu68XL9J5YefrZti-55" value="This Procedure is repeated&lt;br style=&quot;font-size: 11px;&quot;&gt;at set intervals from this check&lt;br style=&quot;font-size: 11px;&quot;&gt;point&lt;br style=&quot;font-size: 11px;&quot;&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#b85450;fillColor=#f8cecc;dashed=1;dashPattern=8 8;glass=1;shadow=1;fontStyle=1;fontSize=11;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="20" y="475" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontStyle=1;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-0" target="S3ySTu68XL9J5YefrZti-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-0" value="Service&amp;nbsp;&lt;br&gt;Starts" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#1ba1e2;strokeColor=#006EAF;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="50" y="30" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontStyle=1;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-1" target="S3ySTu68XL9J5YefrZti-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#0050ef;strokeColor=#001DBC;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-1" target="S3ySTu68XL9J5YefrZti-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-1" value="Initialize Service&lt;br&gt;(Dependency&amp;nbsp; Injections,Appsettings)" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="20" y="160" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontStyle=1;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-15" value="StartAsync Task&lt;br&gt;(simple logging message)" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="30" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-19" value="&lt;br&gt;ValidRunning Time Check&lt;br&gt;(Is it 9 30 - 21 30 or Working&lt;br&gt;day?)&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="210" y="250" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-21" value="&lt;b&gt;&lt;i&gt;FALSE&lt;/i&gt;&lt;/b&gt; -- Run again on the specified interval" style="text;strokeColor=#006EAF;align=center;fillColor=#1ba1e2;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="290" y="175" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-22" target="S3ySTu68XL9J5YefrZti-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-22" value="Load Html Document for scraping" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="270" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-24" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;TRUE&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontStyle=1;fillColor=#FFFFFF;fontColor=#3399FF;strokeColor=#FFFFFF;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="300" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-26" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-19" target="S3ySTu68XL9J5YefrZti-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="370" as="sourcePoint" />
+            <mxPoint x="500" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-30" target="S3ySTu68XL9J5YefrZti-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-30" value="&lt;b&gt;Scraping Html Document - Collect the data needed&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="440" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#1ba1e2;strokeColor=#006EAF;fontStyle=1" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-32" target="S3ySTu68XL9J5YefrZti-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#1ba1e2;strokeColor=#006EAF;fontStyle=1" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-32" target="S3ySTu68XL9J5YefrZti-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-32" value="&lt;span&gt;Export in .csv file&lt;br&gt;format&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;rounded=0;fontStyle=1" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="440" y="590" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-36" value="&lt;b&gt;NOTE&lt;/b&gt;: The Procedure in the rectangle is repeated for MGO &lt;br&gt;and VLSFO data each time the ValidRunning Time Check&amp;nbsp;&lt;br&gt;is &lt;b&gt;TRUE&lt;/b&gt;&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#b85450;fillColor=#f8cecc;direction=east;rounded=0;glass=1;shadow=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="405" y="370" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-37" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-19" target="S3ySTu68XL9J5YefrZti-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="250" as="sourcePoint" />
+            <mxPoint x="142" y="271" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="370" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-38" value="Vlsfo.csv" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontStyle=1" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="290" y="555" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-39" value="Mgo.csv" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontStyle=1" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="290" y="630" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-48" value="WorkerLog.txt&lt;br&gt;(Entire app&#39;s Logging)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;fontStyle=1" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="190" y="50" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fillColor=#0050ef;strokeColor=#001DBC;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3ySTu68XL9J5YefrZti-51">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="191" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S3ySTu68XL9J5YefrZti-51" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="230" y="430" width="380" height="320" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
