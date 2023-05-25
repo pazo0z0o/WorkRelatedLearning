@@ -19,8 +19,8 @@ namespace ShipBunkerWindowsService.Repos
         {
             _logger = logger;
         }
-       
-        /// <summary>Checks the current time and runs or doesn't run according to the specified times we want.</summary>
+
+        /// <summary>Scrapes the desired data from our loaded doc and places them in a List<FinancialData> list /> </summary>
         /// <param name="loadedDoc"> The loaded HtmlDocument that was returned by Document loader</param>
         /// <param name="xpath">The Xpath of the element we want to scrape from the table</param>
         /// <returns>A <see cref="List{FinancialData}" /> that will be used for the export into .Csv format for our output</returns>
