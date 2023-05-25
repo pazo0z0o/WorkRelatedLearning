@@ -34,7 +34,7 @@ namespace ShipBunkerWindowsService
             return base.StopAsync(cancellationToken);
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken /* && _scraperRepo.ValidRunningTime()*/)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken )
         {
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -57,7 +57,7 @@ namespace ShipBunkerWindowsService
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError("Something went wrong at {errortime}  message : {ex}", DateTime.Now, ex.Message); ;
+                        _logger.LogError("Something went wrong at {errortime}  message : {ex}", DateTime.Now, ex.Message); 
                     }
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.UtcNow);
                     await Task.Delay(resources.IntervalTime, stoppingToken);
