@@ -38,7 +38,7 @@ public class UserData : IUserData
 
     ///<summary>Handles the GetAll sql query</summary>
     /// <param name="user">The user pamater fed to the stored procedure of our choice </param>
-    ///<typeparam name="UserModel"> UserModel type of user param</typeparam>
+    /// <typeparam name="UserModel"> UserModel type of user param</typeparam>
     /// <returns>A <see cref="Task{IEnumerable}type<typeparam name="UserModel"}" /> That is our return list for the GetAll crud function</returns>
     public Task InsertUser(UserModel user) =>
         _db.SaveData(storedProcedure: "spUser_Insert"
