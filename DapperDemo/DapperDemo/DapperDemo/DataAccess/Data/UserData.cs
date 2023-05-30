@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data;
 public class UserData : IUserData
-//Where we get our user data api calls  
+//Where we have all the needed procedures for our API calls later 
 {
     private readonly ISqlDataAccess _db;
 
@@ -21,7 +21,7 @@ public class UserData : IUserData
     /// <returns>A <see cref="Task{IEnumerable{UserModel}}"/>  That is our return list for the GetAll crud function</returns>
     public Task<IEnumerable<UserModel>> GetAllUsers() =>
         _db.LoadData<UserModel, dynamic>
-        (storedProcedure: "dbo.spUser", new {  });
+        (storedProcedure: "dbo.spUser_GetAll", new {  });
 
     ///<summary>Handles the GetById sql query</summary>
     /// <param name="id">The id that corresponds to the table element defined in the stored procedure </param>
@@ -29,7 +29,7 @@ public class UserData : IUserData
     public async Task<UserModel?> GetById(int id)
     {   
         var results = await _db.LoadData<UserModel, dynamic>
-            (storedProcedure: "dbo.spUser_Get", new { Id = id });
+            (storedProcedure: "dbo.spUser_GetById", new { Id = id });
 
         return results.FirstOrDefault();
     }

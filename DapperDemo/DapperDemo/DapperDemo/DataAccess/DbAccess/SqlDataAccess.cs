@@ -18,9 +18,9 @@ public class SqlDataAccess : ISqlDataAccess
 
     ///<summary>Handles the GetAll or Get sql queries</summary>
     /// <param name="storedProcedure">The stored procedure of our choice </param>
-    /// <param name="parameters"type<typeparam name="T">Parameters of input in our functions</param>
+    /// <param name="parameters">Parameters of input in our functions</param>
     /// <param name="connectionId"> The connection string for the database</param>
-    /// <returns>A <see cref="Task{IEnumerable<T>}" /> That is our return list for the GetById or GetAll crud functions</returns>
+    /// <returns>A <see cref="Task{IEnumerable{T}}" /> That is our return list for the GetById or GetAll crud functions</returns>
     public async Task<IEnumerable<T>> LoadData<T, U>(
         string storedProcedure,
         U parameters,
@@ -35,7 +35,7 @@ public class SqlDataAccess : ISqlDataAccess
 
     ///<summary>Handles the Insert,Update,Delete sql queries</summary>
     /// <param name="storedProcedure">The stored procedure of our choice </param>
-    /// <param name="parameters" type<typeparam name="T">Parameters of input in our functions</param>
+    /// <param name="parameters">Parameters of input in our functions</param>
     /// <param name="connectionId"> The connection string for the database</param>
     /// <returns>A <see cref="Task"/> That is our return type for the Insert,Update,Delete crud operations</returns>
     public async Task SaveData<T>(string storedProcedure,
@@ -49,3 +49,4 @@ public class SqlDataAccess : ISqlDataAccess
 
     }
 }
+ // TODO: Data Source=PEATH420;Initial Catalog=MinimalApiUserDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False
