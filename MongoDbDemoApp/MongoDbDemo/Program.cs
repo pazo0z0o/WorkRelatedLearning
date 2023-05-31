@@ -34,7 +34,9 @@ namespace MongoDbDemo
             //Do an if, and if ID = null , THEN insert) = good practice 
             //db.InsertRecord("Users",new PersonModel { Name="Popi" , LastName = "Popper"});
             //-----------------------------------------------------------------
+            
             var record = db.LoadRecords<PersonModel>("Users");
+            
             foreach (var rec in record) 
             { 
             Console.WriteLine($"{rec.Id}: {rec.Name} {rec.LastName}");
@@ -42,6 +44,9 @@ namespace MongoDbDemo
                 if (rec.PrimaryAddress != null)
                 { Console.WriteLine(rec.PrimaryAddress.City); }
             }
+
+            //load by id 
+           var oneRec = db.LoadRecordById<PersonModel>("Users", new Guid("8c04634f-3b0f-429f-a512-f8d742d73700"));
 
             Console.ReadLine();
         }
@@ -92,7 +97,30 @@ namespace MongoDbDemo
             return collection.Find(new BsonDocument()).ToList();
         }
 
+        public T LoadRecordById<T>(string table, Guid id)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("Id", id); //Eq = equals , Gt= greater than etc
 
+            return collection.Find(filter).FirstOrDefault();
+        }
+        //update or insert
+        public void UpsertRecords<T>(string table, Guid id, T record)
+        {
+            var collection = db.GetCollection<T>(table);
+
+            var result = collection.ReplaceOne(new BsonDocument("_id", id), record,
+                new UpdateOptions { IsUpsert = true });
+        }
+        //delete
+        public void DeleteRecord<T>(string table, Guid id)
+        {
+            var collection = db.GetCollection<T>(table);
+
+            var filter = Builders<T>.Filter.Eq("Id", id); //Eq = equals , Gt= greater than etc
+            collection.DeleteOne(filter);
+
+        }
 
     }
 }
