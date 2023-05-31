@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -14,25 +15,34 @@ namespace MongoDbDemo
         {
             MongoCRUD db = new MongoCRUD("AddressBook");
             //What if we add a new property after declaring 2-3 documents
-            PersonModel person = new PersonModel
-            {   Name = "Rider",
-                LastName = "Biden",
-                
-                PrimaryAddress = new AddressModel
-                {
-                StreetAddress = "101 Oak Street",
-                City = "Boston",
-                State = "Massachuchets",
-                ZiplCode = "12345"
-                }
-            };
-            
-            db.InsertRecord("Users", person);
+            //PersonModel person = new PersonModel
+            //{   Name = "Rider",
+            //    LastName = "Biden",
+
+            //    PrimaryAddress = new AddressModel
+            //    {
+            //    StreetAddress = "101 Oak Street",
+            //    City = "Boston",
+            //    State = "Massachuchets",
+            //    ZiplCode = "12345"
+            //    }
+            //};
+
+            //db.InsertRecord("Users", person);
             //The new person document is going to ALSO have the AddressModel object but not the other 2 previous
-            
+
             //Do an if, and if ID = null , THEN insert) = good practice 
             //db.InsertRecord("Users",new PersonModel { Name="Popi" , LastName = "Popper"});
+            //-----------------------------------------------------------------
+            var record = db.LoadRecords<PersonModel>("Users");
+            foreach (var rec in record) 
+            { 
+            Console.WriteLine($"{rec.Id}: {rec.Name} {rec.LastName}");
             
+                if (rec.PrimaryAddress != null)
+                { Console.WriteLine(rec.PrimaryAddress.City); }
+            }
+
             Console.ReadLine();
         }
     }
@@ -53,8 +63,6 @@ namespace MongoDbDemo
         public string City { get; set; }
         public string State { get; set; }
         public string ZiplCode { get; set; }
-    
-    
     }
 
 
@@ -77,8 +85,12 @@ namespace MongoDbDemo
 
         }
 
-
-
+        //read document
+        public List<T> LoadRecords<T>(string table)
+        {
+            var collection = db.GetCollection<T>(table);
+            return collection.Find(new BsonDocument()).ToList();
+        }
 
 
 
