@@ -1,5 +1,4 @@
 ﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,7 @@ namespace MongoDbDemo
 
             //    PrimaryAddress = new AddressModel
             //    {
-            //    StreetAddress = "101 Oak Street",
+            //    StreetAddress = "101 Oak Street",a
             //    City = "Boston",
             //    State = "Massachuchets",
             //    ZiplCode = "12345"
@@ -34,47 +33,27 @@ namespace MongoDbDemo
             //Do an if, and if ID = null , THEN insert) = good practice 
             //db.InsertRecord("Users",new PersonModel { Name="Popi" , LastName = "Popper"});
             //-----------------------------------------------------------------
-            
+
             var record = db.LoadRecords<PersonModel>("Users");
-            
-            foreach (var rec in record) 
-            { 
-            Console.WriteLine($"{rec.Id}: {rec.Name} {rec.LastName}");
-            
+
+            foreach (var rec in record)
+            {
+                Console.WriteLine($"{rec.Id}: {rec.Name} {rec.LastName}");
+
                 if (rec.PrimaryAddress != null)
                 { Console.WriteLine(rec.PrimaryAddress.City); }
             }
 
             //load by id 
-           var oneRec = db.LoadRecordById<PersonModel>("Users", new Guid("8c04634f-3b0f-429f-a512-f8d742d73700"));
+            var oneRec = db.LoadRecordById<PersonModel>("Users", new Guid("8c04634f-3b0f-429f-a512-f8d742d73700"));
 
             Console.ReadLine();
         }
     }
-    
-    public class PersonModel
+
+    public class MongoCRUD
     {
-        [BsonId] // unique identifier of the model class
-        public Guid Id { get; set; }
-        
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public AddressModel PrimaryAddress { get; set; }
-    }
-
-    public class AddressModel 
-    { 
-    public string StreetAddress { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string ZiplCode { get; set; }
-    }
-
-
-
-    public class MongoCRUD 
-    {
-       private IMongoDatabase db;
+        private IMongoDatabase db;
         //database connection mostly handled 
         public MongoCRUD(string database)
         {
@@ -84,10 +63,10 @@ namespace MongoDbDemo
 
         //insert 
         public void InsertRecord<T>(string table, T record)
-        {//on the record I can pass a whole object or list or anything
+        {
+            //on the record I can pass a whole object or list or anything
             var collection = db.GetCollection<T>(table);
             collection.InsertOne(record);
-
         }
 
         //read document
@@ -104,6 +83,7 @@ namespace MongoDbDemo
 
             return collection.Find(filter).FirstOrDefault();
         }
+
         //update or insert
         public void UpsertRecords<T>(string table, Guid id, T record)
         {
