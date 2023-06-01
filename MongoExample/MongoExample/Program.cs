@@ -19,16 +19,16 @@ FilterDefinition<Playlist> filter = Builders<Playlist>.Filter.Eq("Username", "ni
 List<Playlist> results = playlistCollection.Find(filter).ToList();
 foreach (Playlist entry in results)
 {
-    Console.WriteLine(entry.Items);
+    Console.WriteLine(entry.Items.ToString());
 }
 //update operation with filter for already existing value
 UpdateDefinition<Playlist> update = Builders<Playlist>.Update.AddToSet<string>("Items", "5678");
-
+//uses the 
 playlistCollection.UpdateOne(filter, update);
 results = playlistCollection.Find(filter).ToList();
 foreach (var entry in results)
 {
-    Console.WriteLine(entry.Items);
+    Console.WriteLine(entry.Items.ToString());
 
 }
 
