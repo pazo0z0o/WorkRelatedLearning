@@ -1,0 +1,129 @@
+
+// --------------------------------------------------------------------------------------------------
+
+In software development, scope lifecycles define the lifespan and visibility of objects or components within an application. The .NET framework provides several built-in scope lifecycles that you can use to manage the lifetime of objects registered with dependency injection containers like ASP.NET Core's built-in container or third-party containers.
+
+Here are some commonly used scope lifecycles:
+
+1. Singleton: A singleton object is created only once throughout the application's lifetime, and the same instance is reused across multiple requests or usages.
+ It is shared among all consumers and provides a global state.
+ Singleton objects are typically used for stateless services or shared resources.
+
+2. Transient: A transient object is created each time it is requested. 
+Each consumer receives a new instance of the object. 
+Transient objects are not shared among consumers and have a short lifespan.
+ They are typically used for lightweight, stateless services.
+
+3. Scoped: A scoped object is created once per scope, and the same instance is reused within that scope.
+ Scopes are typically associated with an HTTP request in web applications.
+ Each request receives its own instance of scoped objects, ensuring separation and isolation between requests.
+ Scoped objects are used to manage per-request state or resources.
+
+By choosing the appropriate scope lifecycle, you can control the lifetime and behavior of objects in your application.
+ Singleton objects provide a long-lived, shared instance, transient objects offer short-lived instances for each request,
+ and scoped objects provide per-request instances with a medium lifespan.
+
+It's important to choose the correct scope lifecycle based on your application's requirements and the behavior you want to achieve.
+ Improper scope management can lead to issues like memory leaks, thread safety problems, or incorrect sharing of state.
+---------------------------------------------------------------------------------------------------------
+
+============================================================================================================================================================================
+ETHICAL CONCERNS ABOUT SCRAPING
+There are certain kinds of data you should not scrape before talking to your lawyer and the most important kind is personal data, with intellectual property in close second.
+
+The data scraper acts as a good citizen of the web, and does not seek to overburden the targeted website;
+The information copied was publicly available and not behind a password authentication barrier;
+The information copied was primarily factual in nature, and the taking did not infringe on the rights — including copyrights — of another; and
+The information was used to create a transformative product and was not used to steal market share from the target website by luring away users or creating a substantially similar product.
+============================================================================================================================================================================
+GDPR 
+
+There were no specific regulations and everyone’s names, birthdays, and shopping preferences were free to use. This is no longer the case in the European Union (EU), California and other jurisdictions.
+ If you scrape personal data, you should definitely learn about the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA) and your local regulations.
+
+============================================================================================================================================================================
+GDPR defines personal data as follows: “Personal data means any information relating to an identified or identifiable natural person”
+
+some examples of personal data:
+
+Official data about a person
+name, surname
+date of birth
+address
+social security number, passport number, national ID number
+employment information
+
+Contact details
+phone number
+email address
+IP address
+Facebook, Twitter, and other network handles
+
+Data often collected by applications
+location either by address or GPS
+shopping preferences
+behavioral data
+
+Video + audio recordings of people and biometric data
+
+Special categories of personal data
+sex, gender, and sexual orientation
+racial or ethnic origin
+religious beliefs
+political opinions
+medical records
+
+============================================================================================================================================================================
+Is web scraping legal in the US?
+Yes, web scraping itself is legal in the US. The conclusion is supported by recent case law; the courts in HiQ v LinkedIn confirmed that scraping publicly available data is legal. 
+You however need to make sure not to scrape data with special protection under the law,in particular personal data, copyrighted content, or data that are not available to public.
+
+============================================================================================================================================================================
+Pretty much everything on the internet is protected by some kind of copyright. Some things more obviously than others. Music, movies, photographs? 
+Sure, protected. News articles, blog posts, social media posts, research papers? Also protected. Websites' HTML, databases' structure and content, images, logos, and digital graphics? 
+All those things are protected by copyright. The one thing not protected by copyright are plain facts. But what does that mean for web scraping?  ===> So we are not dragging html elements overall with screen scraping and just the table values in our csv files==>we good!
+ALSO : Since the data is not redistributed, shared or reproduced in another site, published as our own data ==> no copyright or ethical checks apply
+
+In the EU, the scraping of copyrighted content is permitted by Article 3 and 4 of the Directive 2019/790 on copyright and related rights in the Digital Single Market (DSM Directive). 
+The DSM Directive permits text and data mining, which means:
+	any automated analytical technique aimed at analysing text and data in digital form in order to generate information which includes,
+	but is not limited to, patterns, trends and correlations;
+
+European Union and the UK: 
+
+EU recently has passed Digital Services Act, which aims to bring all EU countries under Digital Single Market sharing same regulations.
+According to Article 3 and 4 of this regulation, “reproduction of publicly available content” is not illegal. This regulation approaches the topic more from intellectual property point of view,
+and needless to say, would find any web scraping involving personal data illegal due to GDPR. Apart from it, the situation is similar to the US in EU markets and the UK.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
