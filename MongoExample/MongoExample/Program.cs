@@ -7,7 +7,7 @@ MongoClient client = new MongoClient("mongodb+srv://kossmasstamoss:070891p%40p%4
 //foreach (var database in databases) { Console.WriteLine(database); }        
 
 var playlistCollection = client.GetDatabase("sample_mflix").GetCollection<Playlist>("playlist");
-
+//Items list from Playlist.cs
 List<string> movieList = new List<string>();
 movieList.Add("Gladiator");
 
