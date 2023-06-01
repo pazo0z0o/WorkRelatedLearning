@@ -40,8 +40,6 @@ namespace MongoDbDemo
             {
                 Console.WriteLine($"{rec.Name} {rec.LastName}");
 
-                
-              
             }
 
 
