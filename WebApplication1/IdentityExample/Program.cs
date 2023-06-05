@@ -47,7 +47,7 @@ builder.Services.ConfigureApplicationCookie(config => {
 #endregion
 
 #region MailKit Add with its options 
-var MailKitOptions = builder.Configuration.GetSection("Email").Get<MailKitOptions>();  //Gets the email value from appsettings.json and parses it 
+var MailKitOptions = builder.Configuration.GetSection("Email").Get<MailKitOptions>();  //Gets the email values from appsettings.json and parses it 
 //Great case for storage in appsettings.json -- it would have all the params from he MailKitOptions class constructor
 builder.Services.AddMailKit(config => { config.UseMailKit(MailKitOptions); });
 #endregion   
