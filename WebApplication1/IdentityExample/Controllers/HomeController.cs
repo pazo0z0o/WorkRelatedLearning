@@ -13,6 +13,7 @@ namespace IdentityExample.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
 
+        //add usermanager
         public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _signInManager = signInManager;
@@ -61,7 +62,7 @@ namespace IdentityExample.Controllers
         {
             var user = new IdentityUser
             {
-                UserName = " username",
+                UserName = username,
                 Email = "",
             };
 

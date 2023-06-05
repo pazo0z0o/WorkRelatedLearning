@@ -19,7 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(config => {
 //});
 
 
-//Registers the services
+//Registers the services -- Add Identity for user and his role
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(config => 
 {   //some configurations on the password == I removed restrictions here 
     config.Password.RequiredLength = 4;
