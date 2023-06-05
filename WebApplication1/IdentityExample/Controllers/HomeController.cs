@@ -53,7 +53,7 @@ namespace IdentityExample.Controllers
             return RedirectToAction("Index");
         }
 
-        //-----------------------------------------------------------
+        //----------------------------------------------REGISTER------------------------------------------------------------------------
         public IActionResult Register()
         { return View(); }
 
@@ -73,12 +73,28 @@ namespace IdentityExample.Controllers
 
                 if (signinResult.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    //Initiate the email registration and confirmation -- generate EMAIL/Confirmation token
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                    var link = Url.Action(nameof(VerifyEmail),"Home",new {userID=user.Id,code});
+
+
+
+                    return RedirectToAction("EmailVerification"); //redirects to the email verification page 
                 }
             }
             return RedirectToAction("Index");
         }
+        //----------------------------------------------Email Verification View-------------------------------------------------------
+        public IActionResult EmailVerification() => View();
 
+        //----------------------------------------------LogOut------------------------------------------------------------------------
+        public async Task<IActionResult> VerifyEmail(string userId, string code) //the email confirmation token is required for the verification from above
+        {
+
+            return View();
+        }
+        //----------------------------------------------LogOut------------------------------------------------------------------------
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
