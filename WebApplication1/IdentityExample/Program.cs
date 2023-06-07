@@ -8,7 +8,7 @@ using NETCore.MailKit.Infrastructure.Internal;
 var builder = WebApplication.CreateBuilder(args);
 
 
-// Add services to the container.
+// Add services to the container
 
 builder.Services.AddControllersWithViews();
 #region Establish InMemory database 
