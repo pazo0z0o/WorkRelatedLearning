@@ -1,5 +1,3 @@
-
-
 using IdentityExample.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -15,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(config =>
     });
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
 //cookieHandler
@@ -24,8 +23,9 @@ builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth",config =
     config.LoginPath = "/Home/Authenticate";
 });
 
+//episode 3 
 builder.Services.AddAuthorization(config =>
-{//builder pattern -- created a default Authorization policy
+{ //builder pattern -- created a default Authorization policy
     var defaultAuthBuilder = new AuthorizationPolicyBuilder();
     var defaultAuthPolicy = defaultAuthBuilder
     .RequireAuthenticatedUser()
