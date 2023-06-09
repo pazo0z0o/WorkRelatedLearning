@@ -1,56 +1,77 @@
-using IdentityExample.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using Shared;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AppDbContext>(config =>
-    {
-        config.UseInMemoryDatabase("Memory");
-    });
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
 
-//cookieHandler
-builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth",config => 
+builder.Services.AddDbContext<AppDbContext>();
+
+
+
+#region Authentication
+builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", config =>
 {
     config.Cookie.Name = "Grandmas.Cookie";
     config.LoginPath = "/Home/Authenticate";
 });
+#endregion
 
-//episode 3 
-builder.Services.AddAuthorization(config =>
-{ //builder pattern -- created a default Authorization policy
-    var defaultAuthBuilder = new AuthorizationPolicyBuilder();
-    var defaultAuthPolicy = defaultAuthBuilder
-    .RequireAuthenticatedUser()
-    .RequireClaim(ClaimTypes.DateOfBirth)
-    .Build(); //need an authenticated user to continue -- part of the default policy
+#region AddIdentity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(config =>
+{   //some configurations on the password == I removed restrictions here 
+    config.Password.RequiredLength = 4;
+    config.Password.RequireDigit = false;
+    config.Password.RequireNonAlphanumeric = false;
+    config.Password.RequireUppercase = false;
+    //Email verification now required
+    config.SignIn.RequireConfirmedEmail = true;
 
-    config.DefaultPolicy = defaultAuthPolicy;
-});
+}).AddEntityFrameworkStores<AppDbContext>()
+  .AddDefaultTokenProviders(); //Registers the services
+#endregion
+
+
+
+#region Add Authorization
+//builder.Services.AddAuthorization(config =>
+//{
+    //var defaultAuthBuilder = new AuthorizationPolicyBuilder();
+    //var defaultAuthPolicy = defaultAuthBuilder
+    //    .RequireAuthenticatedUser()
+    //    .RequireClaim(ClaimTypes.DateOfBirth)
+    //    .Build();
+
+    //config.DefaultPolicy = defaultAuthPolicy;
+
+
+    //config.AddPolicy("Claim.DoB", policyBuilder =>
+    //{
+    //    policyBuilder.RequireClaim(ClaimTypes.DateOfBirth);
+    //});
+
+//});
 
 builder.Services.AddControllersWithViews();
+#endregion
+
 
 
 // Configure the HTTP request pipeline.
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage(); 
+    app.UseDeveloperExceptionPage();
 }
 
-app.UseRouting();
-// are you allowed in that part of the page?
-app.UseAuthentication();
-
-app.UseAuthorization();
-//yes? Ok who are you then?
+app.UseRouting(); // routing middleware
+app.UseAuthentication(); // are you allowed in that part of the page?
+app.UseAuthorization(); //yes? Ok who are you then?
 
 app.UseEndpoints(endpoints =>
 {

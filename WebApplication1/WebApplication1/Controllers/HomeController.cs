@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
             return View(); 
         }
 
-        public IActionResult Authenticate() 
+        public IActionResult Authenticate() //authentication
         {   //Below we are creating a user object
             //Create Identity claims about who the user is and give some configurations and info 
             var grandmaClaims = new List<Claim>()
@@ -38,9 +38,6 @@ namespace WebApplication1.Controllers
             var userPrincipal = new ClaimsPrincipal(new[] { grandmaIdentity,licenseIdentity }) ;
 
             HttpContext.SignInAsync(userPrincipal) ;
-            
-
-
 
             return RedirectToAction("Index"); 
         }

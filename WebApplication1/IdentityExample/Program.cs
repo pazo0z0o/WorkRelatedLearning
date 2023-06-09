@@ -1,7 +1,8 @@
 using IdentityExample;
-using IdentityExample.Data;
+using Shared;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NETCore.MailKit.Core;
 using NETCore.MailKit.Extensions;
 using NETCore.MailKit.Infrastructure.Internal;
 
@@ -16,16 +17,6 @@ builder.Services.AddDbContext<AppDbContext>(config => {
     config.UseInMemoryDatabase("Memory");
 });
 #endregion
-#region WebApplication1 remnant
-//cookieHandler
-//builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", config =>
-//{
-//    config.Cookie.Name = "Grandmas.Cookie";
-//    config.LoginPath = "/Home/Authenticate";
-//});
-#endregion
-
-//Registers the services -- Add Identity for user and his role
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(config => 
 {   //some configurations on the password == I removed restrictions here 
     config.Password.RequiredLength = 4;
@@ -35,9 +26,11 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(config =>
     //Email verification now required
     config.SignIn.RequireConfirmedEmail = true;  
 
-}) //Registers the services
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+}).AddEntityFrameworkStores<AppDbContext>()
+  .AddDefaultTokenProviders();
+
+
+//Registers the services -- Add Identity for user and his role
 #region cookie configuration
 builder.Services.ConfigureApplicationCookie(config => {
 
@@ -47,6 +40,7 @@ builder.Services.ConfigureApplicationCookie(config => {
 #endregion
 
 #region MailKit Add with its options 
+//builder.Services.AddScoped<IEmailService, EmailService>();
 var MailKitOptions = builder.Configuration.GetSection("Email").Get<MailKitOptions>();  //Gets the email values from appsettings.json and parses it 
 //Great case for storage in appsettings.json -- it would have all the params from he MailKitOptions class constructor
 builder.Services.AddMailKit(config => { config.UseMailKit(MailKitOptions); });
@@ -59,14 +53,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
-
 app.UseRouting();
 // are you allowed in that part of the page?
 app.UseAuthentication();
-
 app.UseAuthorization();
 //yes? Ok who are you then?
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapDefaultControllerRoute();
