@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Shared;
-
+using WebApplication1.AuthorizationRequirements;
+using static WebApplication1.AuthorizationRequirements.CustomRequireClaim;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,8 +40,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(config =>
 
 
 #region Add Authorization
-//builder.Services.AddAuthorization(config =>
-//{
+builder.Services.AddAuthorization(config =>
+{
     //var defaultAuthBuilder = new AuthorizationPolicyBuilder();
     //var defaultAuthPolicy = defaultAuthBuilder
     //    .RequireAuthenticatedUser()
@@ -50,12 +51,20 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(config =>
     //config.DefaultPolicy = defaultAuthPolicy;
 
 
+    config.AddPolicy("Claim.DoB", policyBuilder =>
+    {
+        policyBuilder.AddRequirements(new CustomRequireClaim(ClaimTypes.DateOfBirth));
+    });
+
     //config.AddPolicy("Claim.DoB", policyBuilder =>
     //{
-    //    policyBuilder.RequireClaim(ClaimTypes.DateOfBirth);
+    //    policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);
     //});
 
-//});
+
+});
+
+builder.Services.AddScoped<IAuthorizationHandler, CustomRequireClaimHandler>();
 
 builder.Services.AddControllersWithViews();
 #endregion

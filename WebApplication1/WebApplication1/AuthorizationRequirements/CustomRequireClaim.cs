@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using System.Runtime.CompilerServices;
 
 namespace WebApplication1.AuthorizationRequirements
 {
@@ -17,11 +18,33 @@ namespace WebApplication1.AuthorizationRequirements
 
         public class CustomRequireClaimHandler : AuthorizationHandler<CustomRequireClaim>
         {
+            public CustomRequireClaimHandler()
+            {
+                
+            }
             protected override Task HandleRequirementAsync(
                 AuthorizationHandlerContext context,
                 CustomRequireClaim requirement)
             {
-                context.User.Claims
+                var hasClaim = context.User.Claims.Any(x => x.Type == requirement.ClaimType);
+                if (hasClaim)
+                {
+                    context.Succeed(requirement);
+
+                }
+                return Task.CompletedTask;
+            }
+
+            public static class AuthorizationPolicyBuilderExtensions 
+            { 
+                public static AuthorizationPolicyBuilder RequireCustomClaim(
+                    this AuthorizationPolicyBuilder builder, CallConvThiscall claimtype)
+                {
+                    builder.AddRequirements(new CustomRequireClaim(claimtype));
+                    return builder;
+                }
+            
+            
             }
         }
     }
