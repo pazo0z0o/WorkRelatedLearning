@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using System.Runtime.CompilerServices;
 
 namespace WebApplication1.AuthorizationRequirements
 {
@@ -11,12 +10,9 @@ namespace WebApplication1.AuthorizationRequirements
         {
             ClaimType = claimType;
         }
-
         public string ClaimType { get; }
 
-
-
-        public class CustomRequireClaimHandler : AuthorizationHandler<CustomRequireClaim>
+        public  class CustomRequireClaimHandler : AuthorizationHandler<CustomRequireClaim>
         {
             public CustomRequireClaimHandler()
             {
@@ -30,21 +26,9 @@ namespace WebApplication1.AuthorizationRequirements
                 if (hasClaim)
                 {
                     context.Succeed(requirement);
-
+                    
                 }
                 return Task.CompletedTask;
-            }
-
-            public static class AuthorizationPolicyBuilderExtensions 
-            { 
-                public static AuthorizationPolicyBuilder RequireCustomClaim(
-                    this AuthorizationPolicyBuilder builder, CallConvThiscall claimtype)
-                {
-                    builder.AddRequirements(new CustomRequireClaim(claimtype));
-                    return builder;
-                }
-            
-            
             }
         }
     }

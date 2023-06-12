@@ -45,23 +45,19 @@ namespace IdentityExample.Controllers
 
             if (user != null)
             {
-                //sign in 
                 var signinResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
 
                 if (signinResult.Succeeded)
                 {
                     return RedirectToAction("Index");
                 }
-
             }
-
             return RedirectToAction("Index");
         }
         #endregion
         //----------------------------------------------REGISTER------------------------------------------------------------------------
         #region Registration
-        public IActionResult Register()
-        { return View(); }
+        public IActionResult Register() { return View(); }
 
         [HttpPost]
         public async Task<IActionResult> Register(string username, string password)
@@ -71,13 +67,10 @@ namespace IdentityExample.Controllers
                 UserName = username,
                 Email = "",
             };
-
             var result = await _userManager.CreateAsync(user, password);
-
             if (result.Succeeded)
             {
                 // var signinResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
-
 
                 //Initiate the email registration and confirmation -- generate EMAIL/Confirmation token
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

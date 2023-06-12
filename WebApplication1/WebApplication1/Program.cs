@@ -53,7 +53,7 @@ builder.Services.AddAuthorization(config =>
 
     config.AddPolicy("Claim.DoB", policyBuilder =>
     {
-        policyBuilder.AddRequirements(new CustomRequireClaim(ClaimTypes.DateOfBirth));
+        policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);
     });
 
     //config.AddPolicy("Claim.DoB", policyBuilder =>
