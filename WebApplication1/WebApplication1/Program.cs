@@ -56,6 +56,12 @@ builder.Services.AddAuthorization(config =>
         policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);
     });
 
+    config.AddPolicy("Admin", policyBuilder =>
+    {
+        policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);
+
+    });
+
     //config.AddPolicy("Claim.DoB", policyBuilder =>
     //{
     //    policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);

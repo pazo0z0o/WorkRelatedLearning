@@ -14,6 +14,7 @@ namespace WebApplication1.AuthorizationRequirements
         builder.AddRequirements(new CustomRequireClaim(claimtype));
             return builder;
         }
+       
 
     }
 }

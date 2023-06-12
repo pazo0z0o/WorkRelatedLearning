@@ -15,6 +15,19 @@ namespace WebApplication1.Controllers
             return View(); 
         }
 
+        [Authorize(Policy = "Claim.DoB")]
+        public IActionResult SecretPolicy()
+        {
+            return View("Secret");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult SecretRole()
+        {
+            return View("Secret");
+        }
+
+
         public IActionResult Authenticate() //authentication
         {   //Below we are creating a user object
             //Create Identity claims about who the user is and give some configurations and info 
@@ -22,6 +35,8 @@ namespace WebApplication1.Controllers
             {
                 new Claim(ClaimTypes.Name,"Bob"),
                 new Claim(ClaimTypes.Email, "Bob@fmail.com"),
+                new Claim(ClaimTypes.DateOfBirth,"11/11/2000" ),
+                new Claim(ClaimTypes.Role,"Admin"),
                 new Claim("Grandma.Says", "Very Nice boi")
                 
             };
