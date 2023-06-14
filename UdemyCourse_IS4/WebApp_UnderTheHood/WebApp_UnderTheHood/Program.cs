@@ -44,7 +44,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddHttpClient("OurWebAPI", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:44339");
+    client.BaseAddress = new Uri("https://localhost:44361/");
 
 });
 
