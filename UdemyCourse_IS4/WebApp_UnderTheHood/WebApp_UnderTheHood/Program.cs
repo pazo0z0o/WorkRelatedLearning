@@ -44,8 +44,13 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddHttpClient("OurWebAPI", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:44361/");
+    client.BaseAddress = new Uri("https://localhost:7224/");
 
+}).ConfigureHttpMessageHandlerBuilder(builder => {
+    builder.PrimaryHandler = new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = (m, c, ch, e) => true
+    };
 });
 
 var app = builder.Build();
@@ -57,7 +62,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
