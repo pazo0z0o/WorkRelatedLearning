@@ -9,12 +9,25 @@
     </h1>
     <br />
 
-    <ul>
-        @foreach (var item in Model.WeatherForecastItems)
-        {
-            <li>@item.Date.ToLongDateString() - @item.Summary</li>
-
-        } 
-
-    </ul>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Temp C</td>
+                <td>Temp F</td>
+                <td>Summary</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.WeatherForecastItems)
+            {
+                <tr>
+                    <td>@item.Date</td>
+                    <td>@item.TemperatureC</td>
+                    <td>@item.TemperatureF</td>
+                    <td>@item.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
