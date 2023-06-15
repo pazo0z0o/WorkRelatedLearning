@@ -24,7 +24,7 @@ namespace Web_Api.Controllers
             public string UserName { get; set; }
             public string Password { get; set; }
         }
-
+        //-----------------------------------------------------------------------------------------------------
         [HttpPost]
         public IActionResult Authenticate([FromBody] Credentials credentials)
         {
@@ -42,13 +42,12 @@ namespace Web_Api.Controllers
                 };
 
                 //for use in the SignInAsync
-                var expiresAt = DateTime.UtcNow.AddMinutes(10);
+                var expiresAt = DateTime.UtcNow.AddMinutes(5);
 
                 return Ok(new
                 {
                     access_token = CreateToken(claims,expiresAt),
                     expires_at = expiresAt,
-
                 });
             }
 
@@ -59,7 +58,7 @@ namespace Web_Api.Controllers
         //-----------------------------------------------------------------------------------------------------
         private string CreateToken(IEnumerable<Claim> claims, DateTime expiresAt)
         {
-            var secretKey = Encoding.ASCII.GetBytes(configuration.GetValue<string>("SecretKey"));
+            var secretKey = Encoding.ASCII.GetBytes(configuration.GetValue<string>("SecretKey"));//travigma apo appsettings
 
             var jwt = new JwtSecurityToken
             (

@@ -6,7 +6,7 @@ using WebApp_UnderTheHood.DTO;
 namespace WebApp_UnderTheHood.Pages
 {
     [Authorize(Policy = "HRManagerOnly")]
-    public class HRManagerModel : PageModel
+    public class HRManagerModel : PageModel   
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
