@@ -45,7 +45,7 @@ builder.Services.AddRazorPages();
 //our client points to 
 builder.Services.AddHttpClient("OurWebAPI", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7224/");
+    client.BaseAddress = new Uri("https://localhost:44339/");
     #region HTTPS/ssl certificates fix
 }).ConfigureHttpMessageHandlerBuilder(builder => {
     builder.PrimaryHandler = new HttpClientHandler
