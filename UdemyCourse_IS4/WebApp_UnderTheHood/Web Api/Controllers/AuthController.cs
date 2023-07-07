@@ -59,7 +59,7 @@ namespace Web_Api.Controllers
         private string CreateToken(IEnumerable<Claim> claims, DateTime expiresAt)
         {
             var secretKey = Encoding.ASCII.GetBytes(configuration.GetValue<string>("SecretKey"));//travigma apo appsettings
-
+            //token object 
             var jwt = new JwtSecurityToken
             (
                 claims: claims,
