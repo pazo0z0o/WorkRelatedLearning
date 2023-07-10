@@ -17,10 +17,15 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("configSecurityKey"))//Configuration.GetValue<string>("SecretKey")))
+       // IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("configSecurityKey"))//Configuration.GetValue<string>("SecretKey")))
+            IssuerSigningKey = new SymmetricKeyWrapProvider(Encoding.ASCII.GetBytes("configSecurityKey"))//Configuration.GetValue<string>("SecretKey")))
+
     };
 });
-
+builder.Services.AddSwaggerGen( c => 
+{
+        c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "WenAPI", Version = "v1" });
+});
 
 #region app section 
 var app = builder.Build();
@@ -31,8 +36,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHsts();
-//app.UseHttpsRedirection();
-app.UseAuthentication();
+app.UseHttpsRedirection();
+app.UseAuthentication(); //middleware for authentication
 app.UseAuthorization();
 
 app.MapControllers();

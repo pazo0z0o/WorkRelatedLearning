@@ -18,7 +18,7 @@ public class SqlDataAccess : ISqlDataAccess
 
     ///<summary>Handles the GetAll or Get sql queries</summary>
     /// <param name="storedProcedure">The stored procedure of our choice </param>
-    /// <param name="parameters">Parameters of input in our functions</param>
+    /// <param name="parameters">Parameters of input in our stored procedures</param>
     /// <param name="connectionId"> The connection string for the database</param>
     /// <returns>A <see cref="Task{IEnumerable{T}}" /> That is our return list for the GetById or GetAll crud functions</returns>
     public async Task<IEnumerable<T>> LoadData<T, U>(
