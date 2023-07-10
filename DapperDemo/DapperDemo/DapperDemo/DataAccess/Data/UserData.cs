@@ -19,13 +19,13 @@ public class UserData : IUserData
 
     ///<summary>Handles the GetAll sql query</summary>
     /// <returns>A <see cref="Task{IEnumerable{UserModel}}"/>  That is our return list for the GetAll crud function</returns>
-    public Task<IEnumerable<UserModel>> GetAllUsers() =>
-        _db.LoadData<UserModel, dynamic>
+    public async Task<IEnumerable<UserModel>> GetAllUsers() =>
+      await _db.LoadData<UserModel, dynamic>
         (storedProcedure: "dbo.spUser_GetAll", new {  });
 
     ///<summary>Handles the GetById sql query</summary>
     /// <param name="id">The id that corresponds to the table element defined in the stored procedure </param>
-    /// <returns>A <see cref="IEnumerable{UserModel}" /> That is our return UserModel for the GetAId crud function</returns>
+    /// <returns>A <see cref="UserModel" /> That is our return UserModel for the GetAId crud function</returns>
     public async Task<UserModel?> GetById(int id)
     {   
         var results = await _db.LoadData<UserModel, dynamic>
@@ -40,8 +40,8 @@ public class UserData : IUserData
     /// <param name="user">The user pamater fed to the stored procedure of our choice </param>
     /// <typeparam name="UserModel"> UserModel type of user param</typeparam>
     /// <returns>A <see cref="Task{IEnumerable}type<typeparam name="UserModel"}" /> That is our return list for the GetAll crud function</returns>
-    public Task InsertUser(UserModel user) =>
-        _db.SaveData(storedProcedure: "spUser_Insert"
+    public async Task InsertUser(UserModel user) =>
+       await _db.SaveData(storedProcedure: "spUser_Insert"
             ,new { user.FirstName, user.LastName });
 
     //Update 
@@ -50,7 +50,7 @@ public class UserData : IUserData
     /// <param name="user">Accepts a UserModel </param>
     ///<typeparam name="UserModel"> UserModel type of user param</typeparam>
     /// <returns>A <see cref="Task{IEnumerable}" /> That is our return list for the GetAll crud function</returns>
-    public Task UpdateUser(UserModel user) =>
+    public async Task UpdateUser(UserModel user) =>
         _db.SaveData(storedProcedure: "spUser_Update", user);
 
     //Delete
