@@ -51,15 +51,15 @@ public class UserData : IUserData
     ///<typeparam name="UserModel"> UserModel type of user param</typeparam>
     /// <returns>A <see cref="Task{IEnumerable}" /> That is our return list for the GetAll crud function</returns>
     public async Task UpdateUser(UserModel user) =>
-        _db.SaveData(storedProcedure: "spUser_Update", user);
+       await _db.SaveData(storedProcedure: "spUser_Update", user);
 
     //Delete
 
     ///<summary>Handles the Delete sql query</summary>
     /// <param name="id">The stored procedure of our choice </param>
     /// <returns>A <see cref="Task" /> Returns an awaitable void task</returns>
-    public Task DeleteUser(int id) =>
-        _db.SaveData(storedProcedure: "spUser_Delete", new { Id = id });
+    public async Task DeleteUser(int id) =>
+       await _db.SaveData(storedProcedure: "spUser_Delete", new { Id = id });
 
 
 
