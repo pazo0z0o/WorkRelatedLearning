@@ -5,7 +5,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-var configSecurityKey = builder.Configuration.GetSection("SecretKey").GetValue<string>("SecretKey");
+//var configSecurityKey = builder.Configuration.GetSection("SecretKey").GetValue<string>("SecretKey");
+var configuration = builder.Configuration;
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -17,9 +20,8 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-       // IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("configSecurityKey"))//Configuration.GetValue<string>("SecretKey")))
-            IssuerSigningKey = new SymmetricKeyWrapProvider(Encoding.ASCII.GetBytes("configSecurityKey"))//Configuration.GetValue<string>("SecretKey")))
-
+        //IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("configSecurityKey"));//Configuration.GetValue<string>("SecretKey")))
+          IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration.GetValue<string>("SecretKey")))
     };
 });
 builder.Services.AddSwaggerGen( c => 
