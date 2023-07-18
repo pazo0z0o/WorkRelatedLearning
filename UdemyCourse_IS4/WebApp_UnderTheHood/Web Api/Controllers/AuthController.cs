@@ -8,8 +8,8 @@ using System.Text;
 
 namespace Web_Api.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class AuthController : ControllerBase
     {
         public IConfiguration configuration { get; }
@@ -42,7 +42,7 @@ namespace Web_Api.Controllers
                 };
 
                 //for use in the SignInAsync
-                var expiresAt = DateTime.UtcNow.AddMinutes(5);
+                var expiresAt = DateTime.UtcNow.AddMinutes(30);
 
                 return Ok(new
                 {

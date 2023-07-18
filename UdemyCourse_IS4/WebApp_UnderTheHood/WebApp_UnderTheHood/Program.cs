@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-#region Authentication section
+#region Cookie Authentication section
 builder.Services.AddAuthentication("MyCookieAuth")  //need to add the handler in the services container 
     .AddCookie("MyCookieAuth", options =>  //"MyCookieAuth" = authentication scheme for the middleware
     {
@@ -38,14 +38,23 @@ builder.Services.AddAuthorization(options =>
         .Requirements.Add(new HRManagerProbationRequirements(3))); //added custom requirement we created
 });
 
+
 //injected our own Handler
 builder.Services.AddSingleton<IAuthorizationHandler, HRManagerProbationRequirementsHandler>();
 #endregion
 builder.Services.AddRazorPages();
+builder.Services.AddSession(options =>
+{ 
+    options.Cookie.HttpOnly = true;
+    options.IdleTimeout = TimeSpan.FromHours(8);
+    options.Cookie.IsEssential = true;
+});
+
 //our client points to 
 builder.Services.AddHttpClient("OurWebAPI", client =>
 {
     client.BaseAddress = new Uri("https://localhost:44361/");
+    
     #region HTTPS/ssl certificates fix
 }).ConfigureHttpMessageHandlerBuilder(builder => {
     builder.PrimaryHandler = new HttpClientHandler
@@ -78,6 +87,8 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapRazorPages();
 });
+app.UseSession();
+
 
 app.Run();
 #endregion

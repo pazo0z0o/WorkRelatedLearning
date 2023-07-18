@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web_Api.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
+    [ApiController]
     [Authorize]
     public class WeatherForecastController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace Web_Api.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 10).Select(index => new WeatherForecast
