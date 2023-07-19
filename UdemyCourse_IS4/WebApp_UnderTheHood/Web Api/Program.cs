@@ -33,6 +33,14 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero
     };
 });
+
+//Add AUTHorization
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly",
+            policy => policy.RequireClaim("Admin"));
+});
+
 builder.Services.AddSwaggerGen( c => 
 {
         c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "WenAPI", Version = "v1" });

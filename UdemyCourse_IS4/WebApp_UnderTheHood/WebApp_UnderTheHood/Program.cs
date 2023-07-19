@@ -38,11 +38,12 @@ builder.Services.AddAuthorization(options =>
         .Requirements.Add(new HRManagerProbationRequirements(3))); //added custom requirement we created
 });
 
-
 //injected our own Handler
 builder.Services.AddSingleton<IAuthorizationHandler, HRManagerProbationRequirementsHandler>();
 #endregion
 builder.Services.AddRazorPages();
+
+//configured session
 builder.Services.AddSession(options =>
 { 
     options.Cookie.HttpOnly = true;
@@ -82,12 +83,12 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapRazorPages();
 });
-app.UseSession();
 
 
 app.Run();

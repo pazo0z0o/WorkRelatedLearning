@@ -1,68 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using WebApp_UnderTheHood.Authorization;
 using WebApp_UnderTheHood.DTO;
-using static WebApp_UnderTheHood.Authorization.Credential;
+using WebApp_UnderTheHood.Pages.Account;
 
 namespace WebApp_UnderTheHood.Pages
 {
     [Authorize(Policy = "HRManagerOnly")]
     public class HRManagerModel : PageModel
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IHttpClientFactory httpClientFactory;
 
         [BindProperty]
-        public List<WeatherForecastDTO> WeatherForecastItems { get; set; } //= new List<WeatherForecastDTO>();
+        public List<WeatherForecastDTO> WeatherForecastItems { get; set; }
 
         public HRManagerModel(IHttpClientFactory httpClientFactory)
         {
-            this._httpClientFactory = httpClientFactory;
+            this.httpClientFactory = httpClientFactory;
         }
 
         public async Task OnGetAsync()
         {
-            //get token from session 
-            JwtToken token = null;
-            //for authentication and getting the token
+            WeatherForecastItems = await InvokeEndPoint<List<WeatherForecastDTO>>("OurWebAPI", "WeatherForecast") ?? new ();
+        }
+
+        private async Task<T> InvokeEndPoint<T>(string clientName, string url)
+        {
+            // get token from session
+            JwtToken? token = null;
+            var strTokenObj = HttpContext.Session.GetString("access_token");
+            if (string.IsNullOrWhiteSpace(strTokenObj))
+            { token = await Authenticate(); }
+            else
+                token = JsonConvert.DeserializeObject<JwtToken>(strTokenObj);
+
+            if (token == null ||
+                string.IsNullOrWhiteSpace(token.AccessToken) ||
+                token.ExpiresAt <= DateTime.UtcNow)
+                token = await Authenticate();
+            if (token is null) return default;
+            var httpClient = httpClientFactory.CreateClient(clientName);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
+            return await httpClient.GetFromJsonAsync<T>(url);
+        }
+
+        private async Task<JwtToken?> Authenticate()
+        {
             try
             {
-                var strTokenObj = HttpContext.Session.GetString("access_token");
-                if (string.IsNullOrEmpty(strTokenObj))
-                {
-                    var httpClient = _httpClientFactory.CreateClient("OurWebAPI");
-                    var res = await httpClient.PostAsJsonAsync("auth", new Credential { UserName = "admin", Password = "pass" });
-                    res.EnsureSuccessStatusCode(); //good practice
-                                                   //read and deserialize token from a string
-                    string strJWT = await res.Content.ReadAsStringAsync();
+                var httpClient = httpClientFactory.CreateClient("OurWebAPI");
+                var res = await httpClient.PostAsJsonAsync("auth", new Credential { UserName = "admin", Password = "pass" });
+                res.EnsureSuccessStatusCode();
+                string strJwt = await res.Content.ReadAsStringAsync();
+                HttpContext.Session.SetString("access_token", strJwt);
 
-
-                }
-                else
-                {
-                    token = JsonConvert.DeserializeObject<JwtToken>(strTokenObj);
-                }
-                if(token == null || string.IsNullOrWhiteSpace(token.AccessToken) || token.ExpiresAt <= DateTime.UtcNow)
-                { 
-                
-                
-                
-                }
-                     
-                
-
-
-
-               // httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(
-               //     "Bearer", token.AccessToken);
-
-                //WeatherForecastItems = await httpClient.GetFromJsonAsync<List<WeatherForecastDTO>>("WeatherForecast");
+                return JsonConvert.DeserializeObject<JwtToken>(strJwt);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                return null;
             }
+
         }
     }
 }
