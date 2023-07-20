@@ -11,7 +11,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ApplicationDBContext>(options => 
 {
     //add the connection string through the configuration manager object, config from appsettings
-    options.UseSqlServer(config.GetConnectionString("Default"));
+    // options.UseSqlServer(config.GetConnectionString("Default")); //Work DB connstring
+    options.UseSqlServer(config.GetConnectionString("Home")); //Home DB connstring
+
+
 });
  //behaviour of Identity system -- Password, lockout, user email rules etc
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => 
