@@ -28,9 +28,6 @@ namespace Web_App.Pages.Account
             if (!ModelState.IsValid) { return Page(); }
 
             //Validating Email address (Optional because we already configured the RequireUniqueEmail option in the program.cs)
-
-
-
             //Create the user
             var user = new IdentityUser
             {

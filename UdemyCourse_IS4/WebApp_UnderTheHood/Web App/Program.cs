@@ -10,15 +10,18 @@ builder.Services.AddRazorPages();
 //injected the in-memory representation
 builder.Services.AddDbContext<ApplicationDBContext>(options => 
 {
-    //add the connection string through the configuration manager object, config from appsettings
-    // options.UseSqlServer(config.GetConnectionString("Default")); //Work DB connstring
-    options.UseSqlServer(config.GetConnectionString("Home")); //Home DB connstring
-
-
+    //add the connection string through the configuration manager object, config from appsettings   
+    options.UseSqlServer(config.GetConnectionString("Default")); //Work DB connstring
 });
- //behaviour of Identity system -- Password, lockout, user email rules etc
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => 
+
+builder.Services.AddDbContext<HomeDBContext>(options =>
 {
+    //add the connection string through the configuration manager object, config from appsettings
+    options.UseSqlServer(config.GetConnectionString("Home")); //Home DB connstring
+});
+//behaviour of Identity system -- Password, lockout, user email rules etc
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => 
+{  
     options.Password.RequiredLength = 8;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
@@ -27,6 +30,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15);
 
     options.User.RequireUniqueEmail = true;
+
 }).AddEntityFrameworkStores<ApplicationDBContext>();
 
 builder.Services.ConfigureApplicationCookie(options => {
