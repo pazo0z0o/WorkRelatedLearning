@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp_UnderTheHood", "WebA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web Api", "Web Api\Web Api.csproj", "{7E8E08C5-FA84-4608-8CAD-8230F7BC742F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web App", "Web App\Web App.csproj", "{6E9C02F3-86C6-4024-B8FC-5046D639526C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_App", "Web App\Web_App.csproj", "{6E9C02F3-86C6-4024-B8FC-5046D639526C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
