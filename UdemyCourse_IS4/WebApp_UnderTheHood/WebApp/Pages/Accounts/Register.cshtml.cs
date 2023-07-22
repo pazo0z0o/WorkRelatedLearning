@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
 
 namespace WebApp.Pages.Accounts
 {
@@ -38,13 +39,17 @@ namespace WebApp.Pages.Accounts
             if (result.Succeeded)
             {
                 //return RedirectToPage("/Accounts/Login");
-            
-            var confirmationToken = await this.userManager.GenerateEmailConfirmationTokenAsync(user); //generate email confirm token for a specific user 
-                                                                                                      //then the email token must be send to hte user
+
+                var confirmationToken = await this.userManager.GenerateEmailConfirmationTokenAsync(user); //generate email confirm token for a specific user 
 
 
-                return Redirect(Url.PageLink(pageName: "/Accounts/ConfirmEmail",
-                    values: new {userId = user.Id, token = confirmationToken}));
+                var confirmationLink = Url.PageLink(pageName: "/Accounts/ConfirmEmail",
+                    values: new { userId = user.Id, token = confirmationToken });
+
+                var message = new MailMessage();
+
+
+
             }
             else
             {
