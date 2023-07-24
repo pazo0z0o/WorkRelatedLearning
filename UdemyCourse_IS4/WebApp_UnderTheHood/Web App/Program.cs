@@ -4,6 +4,7 @@ using Web_App.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -24,14 +25,17 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15);
 
     options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedEmail = true;
+
 }).AddEntityFrameworkStores<ApplicationDBContext>();
 
+//configure cookie for login
 builder.Services.ConfigureApplicationCookie(options => {
     options.LoginPath = "/Account/Login";
     options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
-
+#region App container 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -51,3 +55,4 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+#endregion
