@@ -6,12 +6,15 @@ builder.Services.AddRazorPages();
 builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
     {// it is  good to put it in a constant or appsettings 
         options.Cookie.Name = "MyCookieAuth";
-
-
-
+        //options.LoginPath = "/Account/Login";
 
     }
 );
+//const for policy as well | Register the authorization service
+builder.Services.AddAuthorization(options => {
+    options.AddPolicy("MustBelongToHRDepartment", policy =>
+                    policy.RequireClaim("Department", "HR"));
+});
 
 var app = builder.Build();
 
@@ -22,8 +25,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

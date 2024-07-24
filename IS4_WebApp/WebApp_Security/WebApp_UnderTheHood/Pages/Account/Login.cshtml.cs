@@ -30,9 +30,8 @@ namespace WebApp_UnderTheHood.Pages.Account
                     
 
                     new Claim(ClaimTypes.Name, "admin"),
-                    new Claim(ClaimTypes.Email, "admin@foo.com")
-
-
+                    new Claim(ClaimTypes.Email, "admin@foo.com"),
+                    new Claim("Department","HR") //Claim to be used in Authorization
                 };
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
