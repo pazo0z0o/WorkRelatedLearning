@@ -2,6 +2,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//adds default scheme and the one we will be using second
+builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
+    {// it is  good to put it in a constant or appsettings 
+        options.Cookie.Name = "MyCookieAuth";
+
+
+
+
+    }
+);
 
 var app = builder.Build();
 
@@ -13,10 +23,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+//middleware that populates the User.Security context 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseAuthorization();
 
