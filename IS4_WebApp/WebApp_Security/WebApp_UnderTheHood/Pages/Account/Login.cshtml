@@ -1,15 +1,15 @@
 ﻿@page
-@model WebApp_UnderTheHood.Pages.Account1.LoginModel
+@model WebApp_UnderTheHood.Pages.Account.LoginModel
 @{
 
-}
+} 
 
 
 <div class="container border" style="padding:20px">
     <form method="post">
         <div class="text-danger" asp-validation-summary="All"></div>
         <div class="mb-3 row">
-            <div class="col-2>
+            <div class="col-2">
                 <label asp-for="Credential.UserName"></label>
                     <span class="text-danger" asp-validation-for="Credential.UserName"></span>
             </div>
@@ -18,19 +18,21 @@
                 <span class="text-danger" asp-validation-for"="Credential.UserName"></span>
             </div>
         </div>
-        <div class="mb-3" row">
-            <div class="col-2>
+        <div class="mb-3 row">
+            <div class="col-2">
                 <label asp-for="Credential.Password"></label>
             </div>
             <div class="col-5">
-                <input type="text" asp-for="Credential.Password" class="form-control" />
+                <input type="password" asp-for="Credential.Password" class="form-control" autocomplete="current-password" />
                 <span class="text-danger" asp-validation-for"="Credential.Password"></span>
             </div>
         </div>
-        <div class="col-2>
-        <input type="submit" class="accordion-button btn-primary" value="Login">
-        </div>
+        <div class="mb-3 row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Login">
+             </div>
         <div class="col-5">
+        </div>
         </div>
     </form>
 

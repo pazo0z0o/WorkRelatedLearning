@@ -18,20 +18,26 @@ namespace WebApp_UnderTheHood.Pages.Account
 
         }
 
-        public async Task<IActionResult> onPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             { return Page(); }
+
+            Credential.UserName.Trim();
+            Credential.Password.Trim();
 
             if (Credential.UserName == "admin" && Credential.Password == "password")
             {
                 //Creating Security Context:
                 var claims = new List<Claim>{
-                    
+
 
                     new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@foo.com"),
-                    new Claim("Department","HR") //Claim to be used in Authorization
+                    new Claim("Department","HR"), //Claim to be used in Authorization
+                    new Claim("Admin","true"),
+                    new Claim("Manager","true"),
+                    new Claim("EmploymentDate","2024-07-23")
                 };
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);

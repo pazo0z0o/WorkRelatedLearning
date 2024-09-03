@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApp_UnderTheHood.Pages
 {
-    [Authorize(Policy = "MustBelongToHRDepartment")] //specify the policy 
-    public class HumanResourceModel : PageModel
+    [Authorize (Policy="HRManager")]
+    public class HRManagerModel : PageModel
     {
         public void OnGet()
         {
