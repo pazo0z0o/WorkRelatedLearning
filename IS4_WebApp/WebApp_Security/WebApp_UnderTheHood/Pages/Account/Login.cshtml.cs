@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Net;
 using System.Security.Claims;
+using WebApp_UnderTheHood.Authorization;
 
 namespace WebApp_UnderTheHood.Pages.Account
 {
@@ -54,20 +55,7 @@ namespace WebApp_UnderTheHood.Pages.Account
 
             return Page();
         }
-        public class Credentials
-        {
-            [Required]
-            [Display(Description = "User Name")]
-            public string UserName { get; set; } = String.Empty;
-            [Required]
-            [DataType(DataType.Password)]
-            public string Password { get; set; } = String.Empty;
-            [Display(Name = "Remember Me")]
-            public bool RememberMe { get; set; }
-
-
-
-        }
+       
 
 
 
