@@ -5,6 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//adding web api httpclient factory
+builder.Services.AddHttpClient("OurWebAPI",client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7265/");
+
+});
+
 //adds default scheme and the one we will be using second
 builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
     {// it is  good to put it in a constant or appsettings 
@@ -15,6 +23,7 @@ builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", opt
         options.Cookie.SecurePolicy = CookieSecurePolicy.None; // For HTTP use CookieSecurePolicy.None
         options.Cookie.SameSite = SameSiteMode.Lax;
         options.Cookie.Path = "/";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(5); // set time that would take for a cookie to expire
 
     }
 );

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Net;
 using System.Security.Claims;
 
@@ -41,8 +42,12 @@ namespace WebApp_UnderTheHood.Pages.Account
                 };
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+               
+                //very useful for customization of token,cookie behaviour
+                var authenticationProperty = new AuthenticationProperties { IsPersistent = Credential.RememberMe };
+                
                 //tries to sign in with the security context given to the principal
-                await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
+                await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal,authenticationProperty);
 
                 return RedirectToPage("/Index");
             }
@@ -57,6 +62,8 @@ namespace WebApp_UnderTheHood.Pages.Account
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; } = String.Empty;
+            [Display(Name = "Remember Me")]
+            public bool RememberMe { get; set; }
 
 
 
