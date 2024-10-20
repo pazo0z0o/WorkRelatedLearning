@@ -7,7 +7,7 @@ using System.Net;
 using System.Security.Claims;
 using WebApp_UnderTheHood.Authorization;
 
-namespace WebApp_UnderTheHood.Pages.Account
+namespace WebApp_UnderTheHood.Pages
 {
     public class LoginModel : PageModel
     {
@@ -41,19 +41,19 @@ namespace WebApp_UnderTheHood.Pages.Account
                 };
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
-               
+
                 //very useful for customization of token,cookie behaviour
                 var authenticationProperty = new AuthenticationProperties { IsPersistent = Credential.RememberMe };
-                
+
                 //tries to sign in with the security context given to the principal
-                await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal,authenticationProperty);
+                await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal, authenticationProperty);
 
                 return RedirectToPage("/Index");
             }
 
             return Page();
         }
-       
+
 
 
 

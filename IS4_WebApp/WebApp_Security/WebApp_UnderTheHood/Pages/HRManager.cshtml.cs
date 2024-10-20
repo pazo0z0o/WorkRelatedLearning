@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using WebApp_UnderTheHood.Authorization;
 using WebApp_UnderTheHood.DTO;
-using static WebApp_UnderTheHood.Pages.Account.LoginModel;
+using static WebApp_UnderTheHood.Pages.LoginModel;
 
 
 namespace WebApp_UnderTheHood.Pages
@@ -57,7 +57,8 @@ namespace WebApp_UnderTheHood.Pages
                 string strJwt = await response.Content.ReadAsStringAsync();
             HttpContext.Session.SetString("access_token",strJwt);
 
-            return JsonConvert.DeserializeObject<JwtToken>(strJwt);}
+            return JsonConvert.DeserializeObject<JwtToken>(strJwt) ?? new JwtToken();
+        }
     }
 }
 
