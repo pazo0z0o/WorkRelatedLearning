@@ -49,9 +49,7 @@ namespace WevAPP.Pages.Account
                 {
                     ModelState.AddModelError("Login", "Login failed");
                 }
-
-
-
+                return Page();
             }
 
 
