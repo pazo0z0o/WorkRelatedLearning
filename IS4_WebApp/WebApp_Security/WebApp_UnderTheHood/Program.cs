@@ -43,6 +43,14 @@ builder.Services.AddAuthorization(options => {
 
 builder.Services.AddSingleton<IAuthorizationHandler, HRManagerProbationRequirementHandler>();
 
+//configure session parameters 
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.IdleTimeout = TimeSpan.FromMinutes(35);
+    options.Cookie.IsEssential = true;
+});
+//configure cors policy if required
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("OpenCorsPolicy", builder =>
@@ -72,8 +80,8 @@ app.UseCors("OpenCorsPolicy");
 //middleware that populates the User.Security context 
 app.UseAuthentication(); //before the Authorization middleware
 app.UseAuthorization();
-
-
+//add session middleware
+app.UseSession();
 
 app.MapRazorPages();
 

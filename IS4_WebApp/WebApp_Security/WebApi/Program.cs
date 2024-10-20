@@ -33,6 +33,16 @@ builder.Services.AddAuthentication(options =>
 }); //.AddJwtBearer("scheme2"); // you can have multiple authentication handlers but you must name the scheme of one. 
 //not naming a auth handler we get the default scheme
 
+//Authorization Config
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
+
+
+
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

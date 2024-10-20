@@ -32,8 +32,6 @@ namespace WebApp_UnderTheHood.Pages.Account
             {
                 //Creating Security Context:
                 var claims = new List<Claim>{
-
-
                     new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@foo.com"),
                     new Claim("Department","HR"), //Claim to be used in Authorization
