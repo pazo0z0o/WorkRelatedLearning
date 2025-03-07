@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer; //somehow required
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 var secretKey = builder.Configuration.GetValue<string>("SecretKey");
 
