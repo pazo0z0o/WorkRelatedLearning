@@ -9,7 +9,7 @@ builder.Services.AddRazorPages();
 //adding web api httpclient factory
 builder.Services.AddHttpClient("OurWebAPI",client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7265/");
+    client.BaseAddress = new Uri("https://localhost:7292/");
 
 });
 
