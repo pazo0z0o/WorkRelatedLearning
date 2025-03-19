@@ -20,6 +20,7 @@ namespace WebApp_UnderTheHood.Pages
 
         [BindProperty]
         public List<WeatherForecastDTO> weatherForecastItems { get; set; } = new();
+
         public HRManagerModel(IHttpClientFactory httpClientFactory)
         {
             this.httpClientFactory = httpClientFactory;
@@ -46,7 +47,7 @@ namespace WebApp_UnderTheHood.Pages
             }
             var httpClient = httpClientFactory.CreateClient("OurWebAPI");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken ?? String.Empty); 
-            weatherForecastItems = await httpClient.GetFromJsonAsync<List<WeatherForecastDTO>>("WeatherForecast")??new(); //the endpoint of the controller
+            weatherForecastItems = await httpClient.GetFromJsonAsync<List<WeatherForecastDTO>>("WeatherForecast") ?? new(); //the endpoint of the controller
         }
 
         private async Task<JwtToken> Authenticate()

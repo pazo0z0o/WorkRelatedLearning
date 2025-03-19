@@ -4,12 +4,12 @@ using WevAPP.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//// Load appsettings.Development.json or appsettings.json depending on the environment
-//builder.Configuration
-//    .SetBasePath(Directory.GetCurrentDirectory())
-//    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-//    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
-//    .AddEnvironmentVariables();
+// Load appsettings.Development.json or appsettings.json depending on the environment
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
 
 builder.Services.AddRazorPages();
 

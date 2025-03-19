@@ -5,7 +5,7 @@ using WebApi;
 namespace Web_API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [Authorize(policy:"AdminOnly")]
     public class WeatherForecastController : ControllerBase
     {

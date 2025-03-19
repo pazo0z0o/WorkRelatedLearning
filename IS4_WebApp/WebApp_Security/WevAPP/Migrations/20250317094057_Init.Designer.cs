@@ -12,8 +12,8 @@ using WevAPP.Data;
 namespace WevAPP.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241020111231_ScaffoldedTablesMigration")]
-    partial class ScaffoldedTablesMigration
+    [Migration("20250317094057_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
