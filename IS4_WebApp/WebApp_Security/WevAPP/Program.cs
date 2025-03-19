@@ -33,7 +33,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     //sign in options - needed for email registration
     options.SignIn.RequireConfirmedEmail = true;
 })
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders(); //using this to Generate Token for Email Confirmation
 //configuring the cookie options => many many other options
 builder.Services.ConfigureApplicationCookie(options =>
 { 

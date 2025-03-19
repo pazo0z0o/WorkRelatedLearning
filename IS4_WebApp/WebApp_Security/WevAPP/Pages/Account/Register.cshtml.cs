@@ -35,10 +35,14 @@ namespace WevAPP.Pages.Account
             //Create the User with all the limitations we added
             var result = await this.userManager.CreateAsync(user,RegisterViewModel.Password);
             if (result.Succeeded) { 
-                this.userManager.GenerateEmailConfirmationTokenAsync(user);
+                //confirmation token for the email link 
+                var confirmationToken =   await this.userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                return Redirect(Url.PageLink(pageName: "/Account/ConfirmEmail",
+                    values: new { userId = user.Id , token = confirmationToken}) ?? "");
 
                 
-                return RedirectToPage("/Account/Login"); 
+                //return RedirectToPage("/Account/Login"); 
             }
             else
             {
